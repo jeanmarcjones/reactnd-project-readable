@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchCategories } from '../actions'
+import { fetchCategories } from '../actions/categories'
 
 class CategoriesNav extends Component {
   componentDidMount() {
@@ -20,7 +20,7 @@ class CategoriesNav extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  categories: state.categories
+  categories: state.categoriesReducer.categories
 })
 
 const mapDispatchToProps = (dispatch) => ({
