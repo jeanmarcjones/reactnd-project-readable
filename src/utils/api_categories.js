@@ -1,16 +1,8 @@
-const api = process.env.REACT_APP_READABLE_API_URL || 'http://localhost:3001'
+import * as API from './api'
 
-let token = localStorage.token
-
-if (!token)
-  token = localStorage.token = Math.random().toString(36).substr(-8)
-
-const headers = {
-  'Accept': 'application/json',
-  'Authorization': token
-}
+console.log('api', API.headers);
 
 export const fetchCategories = () =>
-  fetch(`${api}/categories`, { headers })
+  fetch(`${API.url}/categories`, { headers: API.headers })
     .then(res => res.json())
     .then(data => data.categories)
