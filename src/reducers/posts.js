@@ -1,10 +1,10 @@
 import {
-  RECIEVE_POSTS
+  RECEIVE_POSTS
 } from '../actions/posts'
 
 export default function posts(state = {}, action) {
   switch(action.type) {
-    case RECIEVE_POSTS :
+    case RECEIVE_POSTS :
       return {}
     default :
       return state
