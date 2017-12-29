@@ -1,4 +1,4 @@
-import * as CategoriesAPI from '../utils/api'
+import * as CategoriesAPI from '../utils/api_categories'
 
 export const RECEIVE_CATEGORY = 'RECEIVE_CATEGORY'
 
