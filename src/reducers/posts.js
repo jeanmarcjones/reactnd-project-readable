@@ -5,7 +5,10 @@ import {
 export default function posts(state = {}, action) {
   switch(action.type) {
     case RECEIVE_POSTS :
-      return {}
+      return {
+        ...state,
+        ...action.posts
+      }
     default :
       return state
   }
