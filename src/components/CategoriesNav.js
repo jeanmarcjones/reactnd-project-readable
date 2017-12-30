@@ -15,12 +15,13 @@ class CategoriesNav extends Component {
           ))}
         </ul>
       </div>
-    );
+    )
   }
 }
 
-const mapStateToProps = (state) => ({
-  categories: state.categoriesReducer.categories
+const mapStateToProps = ({ categories }) => ({
+  // Converts object into an array
+  categories: Object.keys(categories).map((category) => categories[category])
 })
 
 const mapDispatchToProps = (dispatch) => ({
