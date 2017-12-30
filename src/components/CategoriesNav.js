@@ -8,7 +8,7 @@ class CategoriesNav extends Component {
   }
   render() {
     return (
-      <div className="tabs  is-centered">
+      <div className="tabs  is-centered  is-marginless">
         <ul className="capitalise">
           {this.props.categories.map((category) => (
             <li key={category.path}><a>{category.name} </a></li>
