@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CategoriesNav from './CategoriesNav'
+import Postslist from './PostsList'
 
 class App extends Component {
   render() {
@@ -15,6 +16,7 @@ class App extends Component {
           </div>
         </header>
         <CategoriesNav/>
+        <Postslist/>
       </div>
     );
   }
