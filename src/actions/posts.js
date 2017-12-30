@@ -2,7 +2,7 @@ import * as PostsAPI from '../utils/api_posts'
 
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 
-export const recievePosts = (posts) => ({
+export const receivePosts = (posts) => ({
   type: RECEIVE_POSTS,
   posts
 })
@@ -10,5 +10,11 @@ export const recievePosts = (posts) => ({
 export const fetchPosts = () => (dispatch) => (
   PostsAPI
     .fetchPosts()
-    .then()
+    // creates posts object with keys set to post.id
+    .then((res) => Object.assign(...Object.entries(res).map(([key, post]) => ({
+      [post.id]: post
+    }))))
+    .then((res) => {
+      dispatch(receivePosts(res))
+    })
 )
