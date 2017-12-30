@@ -1,5 +1,10 @@
 @import "bulma/bulma.sass";
 
+.tabs li a.is-active {
+    border-bottom-color: #3273dc;
+    color: #3273dc;
+}
+
 .capitalise {
     text-transform: capitalize;
 }
