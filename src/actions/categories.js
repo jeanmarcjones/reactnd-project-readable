@@ -17,6 +17,10 @@ export const addCategory = ({ name, path }) => ({
 export const fetchCategories = () => (dispatch) => (
   CategoriesAPI
     .fetchCategories()
+    // creates categories object with keys set to category.id
+    .then((res) => Object.assign(...Object.entries(res).map(([key, category]) => ({
+      [category.name]: category
+    }))))
     .then((res) => {
       dispatch(receiveCategories(res))
     })
