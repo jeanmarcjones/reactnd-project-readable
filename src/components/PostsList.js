@@ -7,22 +7,31 @@ class PostsList extends Component {
     this.props.getPosts()
   }
   render() {
+    const { posts, filter } = this.props
+
     return (
       <div className="section">
-        <div className="tile  is-ancestor">
-          {this.props.posts.map((post) => (
-            <article key={post.id} className="tile  box">
-              <p className="title">{post.title}</p>
-              <p className="subtitle">Category: <strong>{post.category}</strong></p>
-            </article>
-          ))}
-        </div>
+        {posts
+          .filter((post) => {
+            if(filter) {
+              return post.category === filter
+            } else {
+              return true
+            }
+          })
+          .map((post) => (
+          <div key={post.id} className="box">
+            <p className="title  tile">{post.title}</p>
+            <p className="subtitle  tile">Category: <strong>{post.category}</strong></p>
+          </div>
+        ))}
       </div>
     )
   }
 }
 
 const mapStateToProps = ({ posts }) => ({
+  // Converts object into an array
   posts: Object.keys(posts).map((post) => posts[post])
 })
 

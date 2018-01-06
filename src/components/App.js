@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { Route, Link } from 'react-router-dom'
 import CategoriesNav from './CategoriesNav'
-import Postslist from './PostsList'
+import PostsList from './PostsList'
 
 class App extends Component {
   render() {
@@ -9,17 +10,40 @@ class App extends Component {
         <header className="hero  is-primary">
           <div className="hero-body">
             <div className="container">
-              <h1 className="title">
-                Readable
-              </h1>
+              <Link to="/">
+                <h1 className="title">Readable</h1>
+              </Link>
             </div>
           </div>
         </header>
         <CategoriesNav/>
-        <Postslist/>
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <PostsList filter={false} />
+          )}/>
+        <Route
+          exact
+          path="/react"
+          render={() => (
+            <PostsList filter={'react'} />
+          )}/>
+        <Route
+          exact
+          path="/redux"
+          render={() => (
+            <PostsList filter={'redux'} />
+          )}/>
+        <Route
+          exact
+          path="/udacity"
+          render={() => (
+            <PostsList filter={'udacity'} />
+          )}/>
       </div>
     );
   }
 }
 
-export default App;
+export default App
