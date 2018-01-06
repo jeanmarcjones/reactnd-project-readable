@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchPosts } from '../actions/posts'
+import Post from './Post'
 
 class PostsList extends Component {
   componentDidMount() {
@@ -20,10 +21,7 @@ class PostsList extends Component {
             }
           })
           .map((post) => (
-          <div key={post.id} className="box">
-            <p className="title  tile">{post.title}</p>
-            <p className="subtitle  tile">Category: <strong>{post.category}</strong></p>
-          </div>
+            <Post key={post.id} post={post}/>
         ))}
       </div>
     )
