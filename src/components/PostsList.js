@@ -37,4 +37,7 @@ const mapDispatchToProps = (dispatch) => ({
   getPosts: () => dispatch(fetchPosts())
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostsList)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PostsList)
