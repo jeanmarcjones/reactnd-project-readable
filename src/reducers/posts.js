@@ -1,5 +1,6 @@
 import {
-  RECEIVE_POSTS
+  RECEIVE_POSTS,
+  UPDATE_POST
 } from '../actions/posts'
 
 export default function posts(state = {}, action) {
@@ -8,6 +9,13 @@ export default function posts(state = {}, action) {
       return {
         ...state,
         ...action.posts
+      }
+    case UPDATE_POST :
+      const { post } = action
+
+      return {
+        ...state,
+        [post.id]: post
       }
     default :
       return state
