@@ -41,6 +41,9 @@ const mapDispatchToProps = (dispatch) => ({
   getCategories: () => dispatch(fetchCategories())
 })
 
-export default connect(mapStateToProps, mapDispatchToProps, null, {
-  pure: false
-})(CategoriesNav)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+  null,
+  { pure: false }
+)(CategoriesNav)
