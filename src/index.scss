@@ -1,10 +1,77 @@
 @import "bulma/bulma.sass";
 
-.tabs li a.is-active {
-    border-bottom-color: #3273dc;
-    color: #3273dc;
-}
+// -------
+// Helpers
+// -------
 
 .capitalise {
-    text-transform: capitalize;
+  text-transform: capitalize;
 }
+
+// ----------------------------
+// Post type filter tabs styles
+// ----------------------------
+
+.tabs li a.is-active {
+  border-bottom-color: #3273dc;
+  color: #3273dc;
+}
+
+// ----------------
+// Post item styles
+// ----------------
+
+.post {}
+
+.post__comment-count {
+  position: relative;
+  display: inline-block;
+  margin: 0 18px 0 0;
+  padding: 0 18px 0 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 2px;
+    height: 80%;
+    margin: auto;
+    background-color: $grey-dark;
+  }
+}
+
+// -----------------
+// Vote score styles
+// -----------------
+
+.vote-score {
+  display: inline-block;
+}
+
+  .vote-score__up,
+  .vote-score__down {
+    -webkit-transition: color 0.35s ease;
+    -moz-transition: color 0.35s ease;
+    -o-transition: color 0.35s ease;
+    transition: color 0.35s ease;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+ .vote-score__up {
+   vertical-align: text-top !important;
+
+   &:hover {
+     color: $red;
+   }
+ }
+
+ .vote-score__down {
+   &:hover {
+     color: $green;
+   }
+ }
