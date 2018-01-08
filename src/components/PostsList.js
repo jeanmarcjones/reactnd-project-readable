@@ -8,14 +8,16 @@ class PostsList extends Component {
     this.props.getPosts()
   }
   render() {
-    const { posts, filter } = this.props
+    const { posts, match } = this.props
+
+    console.log('match', match);
 
     return (
-      <div className="section">
+      <div className="container">
         {posts
           .filter((post) => {
-            if(filter) {
-              return post.category === filter
+            if(match.params.id) {
+              return post.category === match.params.id
             } else {
               return true
             }

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Route, Link } from 'react-router-dom'
+import { Route, Link, Switch } from 'react-router-dom'
 import CategoriesNav from './CategoriesNav'
 import PostsList from './PostsList'
+import PostDetails from './PostDetails'
 
 class App extends Component {
   render() {
@@ -17,30 +18,27 @@ class App extends Component {
           </div>
         </header>
         <CategoriesNav/>
-        <Route
-          exact
-          path="/"
-          render={() => (
-            <PostsList filter={false} />
-          )}/>
-        <Route
-          exact
-          path="/react"
-          render={() => (
-            <PostsList filter={'react'} />
-          )}/>
-        <Route
-          exact
-          path="/redux"
-          render={() => (
-            <PostsList filter={'redux'} />
-          )}/>
-        <Route
-          exact
-          path="/udacity"
-          render={() => (
-            <PostsList filter={'udacity'} />
-          )}/>
+        <div className="section">
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={(props) => (
+                <PostsList {...props}/>
+              )}/>
+            <Route
+              path="/:id"
+              render={(props) => (
+                <PostsList {...props}/>
+              )}/>
+            <Route
+              exact
+              path="/post/1"
+              render={() => (
+                <PostDetails/>
+              )}/>
+          </Switch>
+        </div>
       </div>
     );
   }
