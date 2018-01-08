@@ -27,7 +27,7 @@ class App extends Component {
                 <PostsList {...props}/>
               )}/>
             <Route
-              path="/:id"
+              path="/:type"
               render={(props) => (
                 <PostsList {...props}/>
               )}/>

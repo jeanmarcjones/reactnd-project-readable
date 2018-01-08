@@ -10,14 +10,12 @@ class PostsList extends Component {
   render() {
     const { posts, match } = this.props
 
-    console.log('match', match);
-
     return (
       <div className="container">
         {posts
           .filter((post) => {
-            if(match.params.id) {
-              return post.category === match.params.id
+            if(match.params.type) {
+              return post.category === match.params.type
             } else {
               return true
             }
