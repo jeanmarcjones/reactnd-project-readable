@@ -21,7 +21,7 @@ class CategoriesNav extends Component {
           {this.props.categories.map((category) => (
             <li key={category.path}>
               <NavLink
-                to={'/' + category.name}
+                to={`/${category.name}`}
                 activeClassName="is-active"
               >{category.name}</NavLink>
             </li>
@@ -45,5 +45,4 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps,
   null,
-  { pure: false }
 )(CategoriesNav)
