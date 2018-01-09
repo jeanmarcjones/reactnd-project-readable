@@ -13,7 +13,7 @@ class PostsList extends Component {
     return (
       <div className="container">
         {posts
-          .filter((post) => match.params.id ? post.category === match.params.id : true)
+          .filter((post) => match.params.type ? post.category === match.params.type : true)
           .map((post) => (
             <Post key={post.id} post={post}/>
         ))}
