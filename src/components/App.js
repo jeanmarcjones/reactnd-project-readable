@@ -27,15 +27,15 @@ class App extends Component {
                 <PostsList {...props}/>
               )}/>
             <Route
+              exact
               path="/:type"
               render={(props) => (
                 <PostsList {...props}/>
               )}/>
             <Route
-              exact
-              path="/post/1"
-              render={() => (
-                <PostDetails/>
+              path="/post/:id"
+              render={(props) => (
+                <PostDetails {...props}/>
               )}/>
           </Switch>
         </div>
