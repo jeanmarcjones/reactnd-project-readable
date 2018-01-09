@@ -9,7 +9,7 @@ class VoteScore extends Component {
     const { info, update } = this.props
 
     return (
-      <p className="vote-score">
+      <div className="vote-score">
         <ThumbUp
           className="vote-score__down"
           onClick={() => update({ id: info.id, component: info.component, option: 'upVote' })}
@@ -19,7 +19,7 @@ class VoteScore extends Component {
           className="vote-score__up"
           onClick={() => update({ id: info.id, component: info.component, option: 'downVote' })}
         />
-      </p>
+      </div>
     )
   }
 }
