@@ -1,27 +1,23 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { updateScore } from '../actions/posts'
 import ThumbUp from 'react-icons/lib/md/thumb-up'
 import ThumbDown from 'react-icons/lib/md/thumb-down'
 
-class VoteScore extends Component {
-  render() {
-    const { info, update } = this.props
-
-    return (
-      <div className="vote-score">
-        <ThumbUp
-          className="vote-score__down"
-          onClick={() => update({ id: info.id, component: info.component, option: 'upVote' })}
-        />
-        <span style={{margin: '0 10px'}}>{info.score}</span>
-        <ThumbDown
-          className="vote-score__up"
-          onClick={() => update({ id: info.id, component: info.component, option: 'downVote' })}
-        />
-      </div>
-    )
-  }
+function VoteScore(props) {
+  return (
+    <div className="vote-score">
+      <ThumbUp
+        className="vote-score__down"
+        onClick={() => props.update({ id: props.info.id, component: props.info.component, option: 'upVote' })}
+      />
+      <span style={{margin: '0 10px'}}>{props.info.score}</span>
+      <ThumbDown
+        className="vote-score__up"
+        onClick={() => props.update({ id: props.info.id, component: props.info.component, option: 'downVote' })}
+      />
+    </div>
+  )
 }
 
 const mapDispatchToProps = (dispatch) => ({
