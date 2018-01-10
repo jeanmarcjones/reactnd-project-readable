@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { Route, Link, Switch } from 'react-router-dom'
+import { fetchPosts } from '../actions/posts'
 import CategoriesNav from './CategoriesNav'
 import PostsList from './PostsList'
 import PostDetails from './PostDetails'
 
 class App extends Component {
+  componentDidMount() {
+    this.props.fetchPosts()
+  }
   render() {
     return (
       <div>
@@ -45,4 +50,13 @@ class App extends Component {
   }
 }
 
-export default App
+const mapDispatchToProps = {
+  fetchPosts
+}
+
+export default connect(
+  null,
+  mapDispatchToProps,
+  null,
+  { pure: false }
+)(App)
