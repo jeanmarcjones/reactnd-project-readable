@@ -33,13 +33,13 @@ class App extends Component {
               )}/>
             <Route
               exact
-              path="/:type"
+              path="/:category"
               render={(props) => (
                 <PostsList {...props}/>
               )}/>
             <Route
               exact
-              path="/post/:id"
+              path="/:category/:id"
               render={(props) => (
                 <PostDetails {...props}/>
               )}/>

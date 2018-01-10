@@ -17,7 +17,7 @@ function Post(props) {
         }}
       />
       <Link
-        to={`/post/${props.post.id}`}
+        to={`/${props.post.category}/${props.post.id}`}
         style={{marginLeft: '20px'}}
       >Info</Link>
     </div>
