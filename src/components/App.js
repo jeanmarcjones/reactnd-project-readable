@@ -33,6 +33,7 @@ class App extends Component {
                 <PostsList {...props}/>
               )}/>
             <Route
+              exact
               path="/post/:id"
               render={(props) => (
                 <PostDetails {...props}/>
