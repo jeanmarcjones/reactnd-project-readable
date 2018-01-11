@@ -1,0 +1,1 @@
+export function _throw(m) { throw m }
