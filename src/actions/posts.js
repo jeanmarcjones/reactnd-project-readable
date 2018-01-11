@@ -1,3 +1,5 @@
+import { _throw } from '../utils/helpers'
+
 import * as PostsAPI from '../utils/api_posts'
 import * as ScoreAPI from '../utils/api_score'
 
@@ -32,11 +34,19 @@ export const fetchPosts = () => (dispatch) => (
   PostsAPI
     .fetchPosts()
     // creates posts object with keys set to post.id
-    .then((res) => Object.assign(...Object.entries(res).map(([key, post]) => ({
-      [post.id]: post
-    }))))
+    .then((res) => {
+      // Deals with empty array response
+      res.length > 0
+      ? Object.assign(...Object.entries(res).map(([key, post]) => ({
+        [post.id]: post
+      })))
+      : _throw('There are no posts to be fetched')
+    })
     .then((res) => {
       dispatch(receivePosts(res))
+    })
+    .catch((error) => {
+      console.log('Looks like there was a problem: \n', error);
     })
 )
 
