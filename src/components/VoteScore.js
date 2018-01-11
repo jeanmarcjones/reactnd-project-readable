@@ -21,7 +21,7 @@ function VoteScore(props) {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    update: (data) => dispatch(updateScore(data))
+  update: (data) => dispatch(updateScore(data))
 })
 
 export default connect(
