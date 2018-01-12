@@ -1,11 +1,10 @@
-import { _throw } from '../utils/helpers'
-
 import * as PostsAPI from '../utils/api_posts'
 import * as ScoreAPI from '../utils/api_score'
 
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 export const GET_POST = 'GET_POST'
 export const UPDATE_POST = 'UPDATE_POST'
+export const DELETE_POST = 'DELETE_POST'
 
 export const receivePosts = (posts) => ({
   type: RECEIVE_POSTS,
@@ -22,6 +21,11 @@ export const updatePost = (post) => ({
   post
 })
 
+export const deletePost = ({ id }) => ({
+  type: DELETE_POST,
+  id
+})
+
 export const fetchPost = ({ id }) => (dispatch) => (
   PostsAPI
     .fetchPost(id)
@@ -33,20 +37,22 @@ export const fetchPost = ({ id }) => (dispatch) => (
 export const fetchPosts = () => (dispatch) => (
   PostsAPI
     .fetchPosts()
-    // creates posts object with keys set to post.id
-    .then((res) => {
-      // Deals with empty array response
-      res.length > 0
-      ? Object.assign(...Object.entries(res).map(([key, post]) => ({
+    .then((res) => Object.assign(...Object.entries(res).map(([key, post]) => ({
         [post.id]: post
-      })))
-      : _throw('There are no posts to be fetched')
-    })
+      }))))
     .then((res) => {
       dispatch(receivePosts(res))
     })
     .catch((error) => {
       console.log('Looks like there was a problem: \n', error);
+    })
+)
+
+export const removePost = ({ id }) => (dispatch) => (
+  PostsAPI
+    .deletePost({ id })
+    .then((res) => {
+      dispatch(deletePost({ id: res.id }))
     })
 )
 

@@ -1,6 +1,7 @@
 import {
   RECEIVE_POSTS,
-  UPDATE_POST
+  UPDATE_POST,
+  DELETE_POST
 } from '../actions/posts'
 
 export default function posts(state = {}, action) {
@@ -16,6 +17,13 @@ export default function posts(state = {}, action) {
       return {
         ...state,
         [post.id]: post
+      }
+    case DELETE_POST :
+      // Split state into two object
+      let { [action.id]: deletedItem, ...rest } = state
+
+      return {
+        ...rest
       }
     default :
       return state
