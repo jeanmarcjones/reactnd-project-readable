@@ -1,10 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { removePost } from '../actions/posts'
 import VoteScore from './VoteScore'
 import CommentCount from './CommentCount'
-import { removePost } from '../actions/posts'
-
 
 function Post(props) {
   return (
