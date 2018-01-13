@@ -1,13 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
-import { fetchCategories } from '../actions/categories'
 
-class CategoriesNav extends Component {
-  componentDidMount() {
-    this.props.getCategories()
-  }
-  render() {
+function CategoriesNav(props) {
     return (
       <div className="tabs  is-centered  is-marginless">
         <ul className="capitalise">
@@ -18,7 +13,7 @@ class CategoriesNav extends Component {
               activeClassName="is-active"
             >All</NavLink>
           </li>
-          {this.props.categories.map((category) => (
+          {props.categories.map((category) => (
             <li key={category.path}>
               <NavLink
                 to={`/${category.name}`}
@@ -29,7 +24,6 @@ class CategoriesNav extends Component {
         </ul>
       </div>
     )
-  }
 }
 
 const mapStateToProps = ({ categories }) => ({
@@ -37,13 +31,9 @@ const mapStateToProps = ({ categories }) => ({
   categories: Object.keys(categories).map((category) => categories[category])
 })
 
-const mapDispatchToProps = (dispatch) => ({
-  getCategories: () => dispatch(fetchCategories())
-})
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  null,
   null,
   { pure: false }
 )(CategoriesNav)

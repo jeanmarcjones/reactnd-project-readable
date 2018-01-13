@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Route, Link, Switch } from 'react-router-dom'
 import { fetchPosts } from '../actions/posts'
+import { fetchCategories } from "../actions/categories";
 import CategoriesNav from './CategoriesNav'
 import PostsList from './PostsList'
 import PostDetails from './PostDetails'
@@ -9,7 +10,9 @@ import PostsForm from './PostsForm'
 
 class App extends Component {
   componentDidMount() {
-    this.props.fetchPosts()
+    const { fetchCategories, fetchPosts } = this.props
+    fetchCategories()
+    fetchPosts()
   }
   render() {
     return (
@@ -58,6 +61,7 @@ class App extends Component {
 }
 
 const mapDispatchToProps = {
+  fetchCategories,
   fetchPosts
 }
 
