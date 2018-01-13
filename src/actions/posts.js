@@ -3,6 +3,7 @@ import * as ScoreAPI from '../utils/api_score'
 
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 export const GET_POST = 'GET_POST'
+export const ADD_POST = 'ADD_POST'
 export const UPDATE_POST = 'UPDATE_POST'
 export const DELETE_POST = 'DELETE_POST'
 
@@ -14,6 +15,11 @@ export const receivePosts = (posts) => ({
 export const getPost = (post) => ({
   type: GET_POST,
   post
+})
+
+export const addPost = ({ post }) => ({
+    type: ADD_POST,
+    post
 })
 
 export const updatePost = (post) => ({
@@ -47,6 +53,14 @@ export const fetchPosts = () => (dispatch) => (
       console.log('Looks like there was a problem: \n', error);
     })
 )
+
+export const createPost = ({ post }) => (dispatch) => {
+  PostsAPI
+    .createPost(post)
+    .then((res) => {
+      dispatch(addPost({ post: res }))
+    })
+}
 
 export const removePost = ({ id }) => (dispatch) => (
   PostsAPI
