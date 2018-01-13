@@ -5,6 +5,7 @@ import { fetchPosts } from '../actions/posts'
 import CategoriesNav from './CategoriesNav'
 import PostsList from './PostsList'
 import PostDetails from './PostDetails'
+import PostsForm from './PostsForm'
 
 class App extends Component {
   componentDidMount() {
@@ -25,6 +26,12 @@ class App extends Component {
         <CategoriesNav/>
         <div className="section">
           <Switch>
+            <Route
+              exact
+              path="/posts-form"
+              render={() => (
+                <PostsForm/>
+              )}/>
             <Route
               exact
               path="/"
