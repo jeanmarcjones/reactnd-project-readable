@@ -30,7 +30,10 @@ function Post(props) {
             to={`/${props.post.category}/${props.post.id}`}
             className="level-item  button"
           >Details</Link>
-          <p className="level-item  button">Edit</p>
+          <Link
+            to={`/edit-post/${props.post.id}`}
+            className="level-item  button"
+          >Edit</Link>
           <a
             onClick={() => props.delete({ id: props.post.id })}
             className="level-item  button  is-danger  is-outlined"

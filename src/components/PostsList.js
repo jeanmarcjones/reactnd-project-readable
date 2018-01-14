@@ -12,7 +12,7 @@ class PostsList extends Component {
         <div className="level">
           <div className="level-item  has-text-centered">
             <Link
-              to='/posts-form'
+              to='/add-post'
               className="level-item  button  is-success  is-outlined"
             >Add post</Link>
           </div>
