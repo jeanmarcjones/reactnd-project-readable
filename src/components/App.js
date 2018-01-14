@@ -6,7 +6,8 @@ import { fetchCategories } from "../actions/categories";
 import CategoriesNav from './CategoriesNav'
 import PostsList from './PostsList'
 import PostDetails from './PostDetails'
-import PostsForm from './PostsForm'
+import AddPost from './AddPost'
+import EditPost from './EditPost'
 
 class App extends Component {
   componentDidMount() {
@@ -31,9 +32,15 @@ class App extends Component {
           <Switch>
             <Route
               exact
-              path="/posts-form"
+              path="/add-post"
               render={() => (
-                <PostsForm/>
+                <AddPost/>
+              )}/>
+            <Route
+              exact
+              path="/edit-post/:id"
+              render={(props) => (
+                <EditPost {...props}/>
               )}/>
             <Route
               exact
