@@ -7,12 +7,12 @@ export const ADD_POST = 'ADD_POST'
 export const UPDATE_POST = 'UPDATE_POST'
 export const DELETE_POST = 'DELETE_POST'
 
-export const receivePosts = (posts) => ({
+export const receivePosts = ({ posts }) => ({
   type: RECEIVE_POSTS,
   posts
 })
 
-export const getPost = (post) => ({
+export const getPost = ({ post }) => ({
   type: GET_POST,
   post
 })
@@ -22,7 +22,7 @@ export const addPost = ({ post }) => ({
     post
 })
 
-export const updatePost = (post) => ({
+export const updatePost = ({ post }) => ({
   type: UPDATE_POST,
   post
 })
@@ -36,7 +36,7 @@ export const fetchPost = ({ id }) => (dispatch) => (
   PostsAPI
     .fetchPost(id)
     .then((res) => {
-      dispatch(getPost(res))
+      dispatch(getPost({ post: res }))
     })
 )
 
@@ -47,7 +47,7 @@ export const fetchPosts = () => (dispatch) => (
         [post.id]: post
       }))))
     .then((res) => {
-      dispatch(receivePosts(res))
+      dispatch(receivePosts({ posts: res }))
     })
     .catch((error) => {
       console.log('Looks like there was a problem: \n', error);
@@ -74,6 +74,6 @@ export const updateScore = ({ id, component, option }) => (dispatch) => {
   ScoreAPI
     .setScore(id, component, option)
     .then((res) => {
-      dispatch(updatePost(res))
+      dispatch(updatePost({ post: res }))
     })
 }
