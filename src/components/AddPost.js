@@ -3,15 +3,18 @@ import { connect } from 'react-redux'
 import { createPost } from '../actions/posts'
 import { uuid, capitalize } from '../utils/helpers'
 
-class PostsForm extends Component {
+class AddPost extends Component {
   state = {
-    title: '',
-    author: '',
-    category: 'react',
-    body: ''
+    post: {
+      id: '',
+      title: '',
+      author: '',
+      category: 'react',
+      body: ''
+    }
   }
-  handleInputChange = (event) => {
-    const target = event.target;
+  handleInputChange = (e) => {
+    const target = e.target;
     const value =  target.value;
     const name = target.name;
 
@@ -21,23 +24,18 @@ class PostsForm extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
-    const { title, author, category, body } = this.state
-
-    console.log('category', category);
+    const { post } = this.state
 
     this.props.add({
       post: {
-          id: uuid(),
-          timestamp: Date.now(),
-          title,
-          body,
-          author,
-          category,
-        }
+        ...post,
+        id: uuid(),
+        timestamp: Date.now()
+      }
     })
   }
   render() {
-    const { title, author, category, body } = this.state
+    const { post } = this.state
 
     return (
       <div className="container">
@@ -49,9 +47,10 @@ class PostsForm extends Component {
                 name="title"
                 className="input"
                 type="text"
-                value={title}
+                value={post.title}
                 onChange={this.handleInputChange}
-                placeholder="Text input"/>
+                placeholder="Text input"
+                required/>
             </div>
           </div>
           <div className="field">
@@ -61,9 +60,10 @@ class PostsForm extends Component {
                 name="author"
                 className="input"
                 type="text"
-                value={author}
+                value={post.author}
                 onChange={this.handleInputChange}
-                placeholder="Text input"/>
+                placeholder="Text input"
+                required/>
             </div>
           </div>
           <div className="field">
@@ -72,8 +72,9 @@ class PostsForm extends Component {
               <div className="select">
                 <select
                   name="category"
-                  value={category}
-                  onChange={this.handleInputChange}>
+                  value={post.category}
+                  onChange={this.handleInputChange}
+                  required>
                   {this.props.categories.map((category) => (
                     <option
                       key={category.path}
@@ -90,9 +91,10 @@ class PostsForm extends Component {
               <textarea
                 name="body"
                 className="textarea"
-                value={body}
+                value={post.body}
                 onChange={this.handleInputChange}
-                placeholder="Text input"/>
+                placeholder="Text input"
+                required/>
             </div>
           </div>
           <div className="field">
@@ -115,7 +117,7 @@ const mapDispatchToProps = (dispatch) => ({
   add: (data) => dispatch(createPost(data))
 })
 
-export default  connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(PostsForm)
+)(AddPost)
