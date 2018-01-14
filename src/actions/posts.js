@@ -62,6 +62,14 @@ export const createPost = ({ post }) => (dispatch) => {
     })
 }
 
+export const editPost = ({ post }) => (dispatch) => {
+  PostsAPI
+    .editPost(post)
+    .then((res) => {
+      dispatch(updatePost({ post: res }))
+    })
+}
+
 export const removePost = ({ id }) => (dispatch) => (
   PostsAPI
     .deletePost({ id })
