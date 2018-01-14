@@ -4,9 +4,9 @@ import { Field, reduxForm } from 'redux-form'
 import { editPost } from '../actions/posts'
 import { capitalize } from '../utils/helpers'
 
-function EditPost({ handleSubmit, categories }) {
+let EditPost = ({ handleSubmit, categories, edit }) => {
   const onSubmit = (values) => {
-    this.props.edit({
+    edit({
       post: values
     })
   }
@@ -84,7 +84,7 @@ const mapStateToProps = ({ categories, posts, form }, ownProps) => ({
   // Converts object into an array
   categories: Object.keys(categories).map((category) => categories[category]),
   // Load posts details into fields
-  initialValues: posts[ownProps.match.params.id]
+  initialValues: posts.byId[ownProps.match.params.id]
 })
 
 const mapDispatchToProps = (dispatch) => ({

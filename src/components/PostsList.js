@@ -29,7 +29,7 @@ class PostsList extends Component {
 
 const mapStateToProps = ({ posts }) => ({
   // Converts object into an array
-  posts: Object.keys(posts).map((post) => posts[post])
+  posts: posts.allIds.map((id) => posts.byId[id])
 })
 
 export default connect(mapStateToProps)(PostsList)

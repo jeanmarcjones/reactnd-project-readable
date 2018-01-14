@@ -37,7 +37,7 @@ class PostDetails extends Component {
 }
 
 const mapStateToProps = ({ posts }, ownProps) => ({
-  post: posts[ownProps.match.params.id],
+  post: posts.byId[ownProps.match.params.id],
 })
 
 export default connect(mapStateToProps)(PostDetails)
