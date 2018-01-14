@@ -14,16 +14,19 @@ class AddPost extends Component {
     }
   }
   handleInputChange = (e) => {
-    const target = e.target;
-    const value =  target.value;
-    const name = target.name;
+    const target = e.target
+    const value =  target.value
+    const name = target.name
 
     this.setState({
-      [name]: value
-    });
+      post: {
+        ...this.state.post,
+        [name]: value
+      }
+    })
   }
   handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     const { post } = this.state
 
     this.props.add({
@@ -39,6 +42,7 @@ class AddPost extends Component {
 
     return (
       <div className="container">
+        <h2 className="title">Add Post</h2>
         <form onSubmit={this.handleSubmit}>
           <div className="field">
             <label className="label">Title</label>
