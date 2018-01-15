@@ -1,5 +1,4 @@
 import * as PostsAPI from '../utils/api_posts'
-import * as ScoreAPI from '../utils/api_score'
 
 import { receiveComments } from "./comments";
 
@@ -81,21 +80,21 @@ export const fetchPostComments = ({ posts }) => (dispatch) => (
   )
 )
 
-export const createPost = ({ post }) => (dispatch) => {
+export const createPost = ({ post }) => (dispatch) => (
   PostsAPI
     .createPost(post)
     .then((res) => {
       dispatch(addPost({ post: res }))
     })
-}
+)
 
-export const editPost = ({ post }) => (dispatch) => {
+export const editPost = ({ post }) => (dispatch) => (
   PostsAPI
     .editPost(post)
     .then((res) => {
       dispatch(updatePost({ post: res }))
     })
-}
+)
 
 export const removePost = ({ id }) => (dispatch) => (
   PostsAPI
@@ -104,11 +103,3 @@ export const removePost = ({ id }) => (dispatch) => (
       dispatch(deletePost({ id: res.id }))
     })
 )
-
-export const updateScore = ({ id, component, option }) => (dispatch) => {
-  ScoreAPI
-    .setScore(id, component, option)
-    .then((res) => {
-      dispatch(updatePost({ post: res }))
-    })
-}

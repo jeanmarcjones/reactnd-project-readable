@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { updateScore } from '../actions/posts'
+import { updateScore } from '../actions/score'
 import ThumbUp from 'react-icons/lib/md/thumb-up'
 import ThumbDown from 'react-icons/lib/md/thumb-down'
 

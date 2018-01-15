@@ -1,5 +1,4 @@
 import * as CommentAPI from '../utils/api_comments'
-import * as ScoreAPI from '../utils/api_score'
 
 export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS'
 export const ADD_COMMENT = 'ADD_COMMENT'
@@ -26,21 +25,21 @@ export const deleteComment = ({ id }) => ({
   id
 })
 
-export const createComment = ({ comment }) => (dispatch) => {
+export const createComment = ({ comment }) => (dispatch) => (
   CommentAPI
     .createComment(comment)
     .then((res) => {
       dispatch(addComment({ comment: res }))
     })
-}
+)
 
-export const editComment = ({ comment }) => (dispatch) => {
+export const editComment = ({ comment }) => (dispatch) => (
   CommentAPI
     .editComment(comment)
     .then((res) => {
       dispatch(updateComment({ comment: res }))
     })
-}
+)
 
 export const removeComment = ({ id }) => (dispatch) => (
   CommentAPI
@@ -49,11 +48,3 @@ export const removeComment = ({ id }) => (dispatch) => (
       dispatch(deleteComment({ id: res.id }))
     })
 )
-
-export const updateScore = ({ id, component, option }) => (dispatch) => {
-  ScoreAPI
-    .setScore(id, component, option)
-    .then((res) => {
-      dispatch(updateComment({ comment: res }))
-    })
-}
