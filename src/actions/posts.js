@@ -1,5 +1,5 @@
 import * as PostsAPI from '../utils/api_posts'
-
+import history from '../history'
 import { receiveComments } from "./comments";
 
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
@@ -85,6 +85,7 @@ export const createPost = ({ post }) => (dispatch) => (
     .createPost(post)
     .then((res) => {
       dispatch(addPost({ post: res }))
+      history.push('/')
     })
 )
 
@@ -93,6 +94,7 @@ export const editPost = ({ post }) => (dispatch) => (
     .editPost(post)
     .then((res) => {
       dispatch(updatePost({ post: res }))
+      history.push('/')
     })
 )
 
@@ -101,5 +103,6 @@ export const removePost = ({ id }) => (dispatch) => (
     .deletePost({ id })
     .then((res) => {
       dispatch(deletePost({ id: res.id }))
+      history.push('/')
     })
 )
