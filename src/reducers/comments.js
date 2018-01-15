@@ -4,7 +4,6 @@ import {
   UPDATE_COMMENT,
   DELETE_COMMENT
 } from '../actions/comments'
-import {ADD_POST, UPDATE_POST} from "../actions/posts";
 
 const initialState = {
   byId: {},
@@ -22,7 +21,7 @@ export default function comments(state = initialState, action) {
         },
         allIds: Object.keys(action.comments).map((k) => k)
       }
-    case ADD_POST :
+    case ADD_COMMENT :
       return {
         ...state,
         byId: {
@@ -31,7 +30,7 @@ export default function comments(state = initialState, action) {
         },
         allIds: [ ...state.allIds, action.comment.id ]
       }
-    case UPDATE_POST :
+    case UPDATE_COMMENT :
       return {
         ...state,
         byId: {
