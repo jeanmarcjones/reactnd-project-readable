@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { removePost } from "../actions/posts";
 import CommentsList from './CommentsLists'
 import CommentCount from './CommentCount'
 import VoteScore from './VoteScore'
@@ -34,7 +35,7 @@ class PostDetails extends Component {
                   className="button"
                 >Edit</Link>
                 <a
-                  // onClick={() => props.delete({ id: post.id })}
+                  onClick={() => this.props.delete({ id: post.id })}
                   className="button  is-danger  is-outlined"
                 >Delete</a>
                 <Link
@@ -51,12 +52,15 @@ class PostDetails extends Component {
   }
 }
 
-const mapStateToProps = ({ posts }, ownProps) => {
-  const postId = ownProps.match.params.id
+const mapStateToProps = ({ posts }, ownProps) => ({
+  post: posts.byId[ownProps.match.params.id]
+})
 
-  return {
-    post: posts.byId[postId]
-  }
-}
+const mapDispatchToProps = (dispatch) => ({
+  delete: (data) => dispatch(removePost(data))
+})
 
-export default connect(mapStateToProps)(PostDetails)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PostDetails)
