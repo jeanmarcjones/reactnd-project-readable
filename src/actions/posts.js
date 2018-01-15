@@ -1,5 +1,6 @@
 import * as PostsAPI from '../utils/api_posts'
 import * as ScoreAPI from '../utils/api_score'
+import { receiveComments } from "./comments";
 
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 export const GET_POST = 'GET_POST'
@@ -40,18 +41,43 @@ export const fetchPost = ({ id }) => (dispatch) => (
     })
 )
 
-export const fetchPosts = () => (dispatch) => (
+export const fetchPostsWithComments = () => (dispatch, getState) => (
   PostsAPI
     .fetchPosts()
+    // creates posts object with keys set to post.id
     .then((res) => Object.assign(...Object.entries(res).map(([key, post]) => ({
         [post.id]: post
-      }))))
+    }))))
     .then((res) => {
       dispatch(receivePosts({ posts: res }))
+      dispatch(fetchPostComments({ posts: getState().posts }))
     })
     .catch((error) => {
       console.log('Looks like there was a problem: \n', error);
     })
+)
+
+export const fetchPostComments = ({ posts }) => (dispatch) => (
+  posts.allIds
+    // Checks if post has any comments
+    .filter((id) => posts.byId[id].commentCount > 0)
+    // Gets post comments
+    .forEach((id) => {
+      PostsAPI
+        .fetchPostComments(id)
+        // creates posts object with keys set to comment.id
+        .then((res) => Object.assign(...Object.entries(res).map(([key, comment]) => ({
+          [comment.id]: comment
+        }))))
+        .then((res) => {
+          dispatch(receiveComments({ comments: res }))
+        })
+        .catch((error) => {
+          console.log('Looks like there was a problem: \n', error);
+        }
+      )
+    }
+  )
 )
 
 export const createPost = ({ post }) => (dispatch) => {
