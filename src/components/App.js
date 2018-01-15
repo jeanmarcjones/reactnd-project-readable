@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Route, Link, Switch } from 'react-router-dom'
+import { Route, Link, Switch, withRouter } from 'react-router-dom'
 import { fetchCategories } from "../actions/categories";
 import { fetchPostsWithComments } from '../actions/posts'
 import CategoriesNav from './CategoriesNav'
@@ -72,9 +72,7 @@ const mapDispatchToProps = {
   fetchPostsWithComments,
 }
 
-export default connect(
+export default withRouter(connect(
   null,
-  mapDispatchToProps,
-  null,
-  { pure: false }
-)(App)
+  mapDispatchToProps
+)(App))
