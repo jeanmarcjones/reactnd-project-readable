@@ -4,6 +4,7 @@ import {
   UPDATE_COMMENT,
   DELETE_COMMENT
 } from '../actions/comments'
+import {ADD_POST, UPDATE_POST} from "../actions/posts";
 
 const initialState = {
   byId: {},
@@ -13,22 +14,30 @@ const initialState = {
 export default function comments(state = initialState, action) {
   switch(action.type) {
     case RECEIVE_COMMENTS :
-      const { comments } = action
       return {
         ...state,
         byId: {
           ...state.byId,
-          ...comments
+          ...action.comments
         },
-        allIds: Object.keys(comments).map((k) => k)
+        allIds: Object.keys(action.comments).map((k) => k)
       }
-    case ADD_COMMENT :
-    case UPDATE_COMMENT :
-      const { comment } = action
-
+    case ADD_POST :
       return {
         ...state,
-        [comment.id]: comment
+        byId: {
+          ...state.byId,
+          [action.comment.id]: action.comment
+        },
+        allIds: [ ...state.allIds, action.comment.id ]
+      }
+    case UPDATE_POST :
+      return {
+        ...state,
+        byId: {
+          ...state.byId,
+          [action.comment.id]: action.comment
+        }
       }
     case DELETE_COMMENT :
       const prunedIds = state.allIds.filter((item) => item !== action.id )

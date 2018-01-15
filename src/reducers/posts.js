@@ -13,21 +13,30 @@ const initialState = {
 export default function posts(state = initialState, action) {
   switch(action.type) {
     case RECEIVE_POSTS :
-      const { posts } = action
       return {
         ...state,
         byId: {
           ...state.byId,
-          ...posts
+          ...action.posts
         },
-        allIds: Object.keys(posts).map((k) => k)
+        allIds: Object.keys(action.posts).map((k) => k)
       }
     case ADD_POST :
-    case UPDATE_POST :
-      const { post } = action
       return {
         ...state,
-        [post.id]: post
+        byId: {
+          ...state.byId,
+          [action.post.id]: action.post
+        },
+        allIds: [ ...state.allIds, action.post.id ]
+      }
+    case UPDATE_POST :
+      return {
+        ...state,
+        byId: {
+          ...state.byId,
+          [action.post.id]: action.post
+        }
       }
     case DELETE_POST :
       const prunedIds = state.allIds.filter((item) => item !== action.id )
