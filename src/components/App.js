@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Route, Link, Switch } from 'react-router-dom'
-import { fetchPosts } from '../actions/posts'
 import { fetchCategories } from "../actions/categories";
+import { fetchPostsWithComments } from '../actions/posts'
 import CategoriesNav from './CategoriesNav'
 import PostsList from './PostsList'
 import PostDetails from './PostDetails'
@@ -11,9 +11,9 @@ import EditPost from './EditPost'
 
 class App extends Component {
   componentDidMount() {
-    const { fetchCategories, fetchPosts } = this.props
+    const { fetchCategories, fetchPostsWithComments } = this.props
     fetchCategories()
-    fetchPosts()
+    fetchPostsWithComments()
   }
   render() {
     return (
@@ -63,13 +63,13 @@ class App extends Component {
           </Switch>
         </div>
       </div>
-    );
+    )
   }
 }
 
 const mapDispatchToProps = {
   fetchCategories,
-  fetchPosts
+  fetchPostsWithComments,
 }
 
 export default connect(
