@@ -30,11 +30,12 @@ export default function posts(state = initialState, action) {
         [post.id]: post
       }
     case DELETE_POST :
-      // Split state into two object
-      let { [action.id]: deletedItem, ...rest } = state
+      const prunedIds = state.allIds.filter((item) => item !== action.id )
+      delete state.byId[action.id]
 
       return {
-        ...rest
+        byId: { ...state.byId },
+        allIds: prunedIds
       }
     default :
       return state
