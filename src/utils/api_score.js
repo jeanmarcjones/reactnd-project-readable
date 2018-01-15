@@ -7,5 +7,9 @@ export const setScore = (id, component, option) =>
       ...API.headers,
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({ option })
-  }).then(res => res.json())
+    body: JSON.stringify({ option })})
+    .then(res => res.json())
+    .then(res => ({
+      ...res,
+      type: `${component}`
+    }))
