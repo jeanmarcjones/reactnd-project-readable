@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "bulma": "^0.6.1",
+    "history": "^4.7.2",
     "node-sass-chokidar": "^0.0.3",
     "npm-run-all": "^4.1.2",
     "prop-types": "^15.6.0",
