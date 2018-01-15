@@ -1,5 +1,6 @@
 import * as PostsAPI from '../utils/api_posts'
 import * as ScoreAPI from '../utils/api_score'
+
 import { receiveComments } from "./comments";
 
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
