@@ -17,7 +17,7 @@ function Comment(props) {
                 info={{
                   score: props.comment.voteScore,
                   id: props.comment.id,
-                  component: 'posts'
+                  component: 'comments'
                 }}
               />
             </div>
