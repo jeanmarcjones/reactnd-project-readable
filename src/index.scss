@@ -24,8 +24,8 @@
 .comment-count {
   position: relative;
   display: inline-block;
-  margin: 0 18px 0 0;
-  padding: 0 18px 0 0;
+  margin-right: 1.1rem;
+  padding-right: 1.1rem;
 
   &::after {
     content: '';
@@ -73,3 +73,34 @@
      color: $green;
    }
  }
+
+// ------------
+// Posts styles
+// ------------
+
+.post-details {
+  margin-bottom: 1.2rem !important;
+}
+
+  .post-details__body {
+    margin-top: 0.9rem;
+  }
+
+  .post-details__buttons {
+
+    :not(:last-child) {
+      margin-right: 0.7rem;
+    }
+  }
+
+// --------------
+// Comment styles
+// --------------
+
+.comment {
+
+  .subtitle {
+    margin: -1.3rem 0 0.45rem !important;
+  }
+}
+
