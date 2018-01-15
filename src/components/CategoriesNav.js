@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 
 function CategoriesNav(props) {
     return (
@@ -31,9 +31,6 @@ const mapStateToProps = ({ categories }) => ({
   categories: Object.keys(categories).map((category) => categories[category])
 })
 
-export default connect(
-  mapStateToProps,
-  null,
-  null,
-  { pure: false }
-)(CategoriesNav)
+export default withRouter(connect(
+  mapStateToProps
+)(CategoriesNav))
