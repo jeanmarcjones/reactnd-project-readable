@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import Modal from 'react-modal'
 import { removePost } from "../actions/posts"
 import  { addCommentModalOpen, addCommentModalClose } from '../actions/modal'
@@ -29,10 +30,10 @@ function PostDetails({ post, match, remove, addCommentModalOpen, openAddCommentM
               {post.body}
             </p>
             <div className="post-details__buttons">
-              <a
-                // onClick={() => this.openIngredientsModal}
+              <Link
+                to={`/edit-post/${post.id}`}
                 className="button"
-              >Edit</a>
+              >Edit</Link>
               <a
                 onClick={() => remove({ id: post.id })}
                 className="button  is-danger  is-outlined"
