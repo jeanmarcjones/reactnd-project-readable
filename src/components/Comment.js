@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { deleteComment } from '../actions/comments'
+import { removeComment } from '../actions/comments'
 import VoteScore from './VoteScore'
 
 function Comment(props) {
@@ -39,7 +39,7 @@ function Comment(props) {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  delete: (data) => dispatch(deleteComment(data))
+  delete: (data) => dispatch(removeComment(data))
 })
 
 export default connect(
