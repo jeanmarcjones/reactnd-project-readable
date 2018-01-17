@@ -11,7 +11,7 @@ export const fetchComment = (id) =>
 
 export const createComment = (comment) =>
   fetch(`${API.url}/comments`, {
-    method: "comment",
+    method: "POST",
     headers: {
       ...API.headers,
       "Content-Type": "application/json"
