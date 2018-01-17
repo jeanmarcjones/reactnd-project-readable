@@ -7,6 +7,8 @@ export const GET_POST = 'GET_POST'
 export const ADD_POST = 'ADD_POST'
 export const UPDATE_POST = 'UPDATE_POST'
 export const DELETE_POST = 'DELETE_POST'
+export const INCREASE_COMMENTS = 'INCREASE_COMMENTS'
+export const DECREASE_COMMENTS = 'DECREASE_COMMENTS'
 
 export const receivePosts = ({ posts }) => ({
   type: RECEIVE_POSTS,
@@ -30,6 +32,16 @@ export const updatePost = ({ post }) => ({
 
 export const deletePost = ({ id }) => ({
   type: DELETE_POST,
+  id
+})
+
+export const increaseComments = ({ id }) => ({
+  type: INCREASE_COMMENTS,
+  id
+})
+
+export const decreaseComments = ({ id }) => ({
+  type: DECREASE_COMMENTS,
   id
 })
 

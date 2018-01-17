@@ -1,4 +1,5 @@
 import * as CommentAPI from '../utils/api_comments'
+import { increaseComments, decreaseComments } from './posts'
 
 export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS'
 export const ADD_COMMENT = 'ADD_COMMENT'
@@ -30,6 +31,7 @@ export const createComment = ({ comment }) => (dispatch) => (
     .createComment(comment)
     .then((res) => {
       dispatch(addComment({ comment: res }))
+      dispatch(increaseComments({ id: res.parentId }))
     })
 )
 
@@ -46,5 +48,6 @@ export const removeComment = ({ id }) => (dispatch) => (
     .deleteComment({ id })
     .then((res) => {
       dispatch(deleteComment({ id: res.id }))
+      dispatch(decreaseComments({ id: res.parentId }))
     })
 )

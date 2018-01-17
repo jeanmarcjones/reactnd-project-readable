@@ -2,7 +2,9 @@ import {
   RECEIVE_POSTS,
   ADD_POST,
   UPDATE_POST,
-  DELETE_POST
+  DELETE_POST,
+  INCREASE_COMMENTS,
+  DECREASE_COMMENTS
 } from '../actions/posts'
 
 const initialState = {
@@ -45,6 +47,28 @@ export default function posts(state = initialState, action) {
       return {
         byId: { ...state.byId },
         allIds: prunedIds
+      }
+    case INCREASE_COMMENTS :
+      return {
+        ...state,
+        byId: {
+          ...state.byId,
+          [action.id]: {
+            ...state.byId[action.id],
+            commentCount: state.byId[action.id].commentCount += 1
+          }
+        }
+      }
+    case DECREASE_COMMENTS :
+      return {
+        ...state,
+        byId: {
+          ...state.byId,
+          [action.id]: {
+            ...state.byId[action.id],
+            commentCount: state.byId[action.id].commentCount -= 1
+          }
+        }
       }
     default :
       return state
