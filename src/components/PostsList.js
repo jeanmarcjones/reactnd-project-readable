@@ -1,30 +1,26 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Post from './Post'
 
-class PostsList extends Component {
-  render() {
-    const { posts, match } = this.props
-
-    return (
-      <div className="container">
-        <div className="level">
-          <div className="level-item  has-text-centered">
-            <Link
-              to='/add-post'
-              className="level-item  button  is-success  is-outlined"
-            >Add post</Link>
-          </div>
+function PostsList({ posts, match }) {
+  return (
+    <div className="container">
+      <div className="level">
+        <div className="level-item  has-text-centered">
+          <Link
+            to='/add-post'
+            className="level-item  button  is-success  is-outlined"
+          >Add post</Link>
         </div>
-        {posts
-          .filter((post) => match.params.category ? post.category === match.params.category : true)
-          .map((post) => (
-            <Post key={post.id} post={post}/>
-        ))}
       </div>
-    )
-  }
+      {posts
+        .filter((post) => match.params.category ? post.category === match.params.category : true)
+        .map((post) => (
+          <Post key={post.id} post={post}/>
+      ))}
+    </div>
+  )
 }
 
 const mapStateToProps = ({ posts }) => ({
