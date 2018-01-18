@@ -3,13 +3,24 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Modal from 'react-modal'
 import { removePost } from "../actions/posts"
-import  { addCommentModalOpen, addCommentModalClose } from '../actions/modal'
+import  { addCommentModalOpen, addCommentModalClose, editCommentModalClose } from '../actions/modal'
 import CommentsList from './CommentsLists'
 import CommentCount from './CommentCount'
 import VoteScore from './VoteScore'
 import AddComment from './AddComment'
+import EditComment from './EditComment'
 
-function PostDetails({ post, match, remove, addCommentModalOpen, openAddCommentModal, closeAddCommentModal }) {
+function PostDetails({
+  post,
+  match,
+  remove,
+  addCommentModalOpen,
+  openAddCommentModal,
+  closeAddCommentModal,
+  editCommentModalOpen,
+  closeEditCommentModal,
+  commentToEdit
+}) {
   // Waits till post has been populated before showing details
   return post
     ? <div className="container">
@@ -59,19 +70,34 @@ function PostDetails({ post, match, remove, addCommentModalOpen, openAddCommentM
           )}
         </Modal>
       )}
+      {editCommentModalOpen && (
+        <Modal
+          isOpen={editCommentModalOpen}
+          onRequestClose={closeEditCommentModal}
+          contentLabel='Add Comment'
+          appElement={document.getElementById('root')}
+        >
+          {editCommentModalOpen && (
+            <EditComment id={commentToEdit}/>
+          )}
+        </Modal>
+      )}
     </div>
     : <p>Loading</p>
 }
 
 const mapStateToProps = ({ posts, modal }, ownProps) => ({
   post: posts.byId[ownProps.match.params.id],
-  addCommentModalOpen: modal.addCommentModalOpen
+  addCommentModalOpen: modal.addCommentModalOpen,
+  editCommentModalOpen: modal.editCommentModalOpen.isOpen,
+  commentToEdit: modal.editCommentModalOpen.commentId
 })
 
 const mapDispatchToProps = (dispatch) => ({
   remove: (data) => dispatch(removePost(data)),
   openAddCommentModal: (data) => dispatch(addCommentModalOpen(data)),
-  closeAddCommentModal: (data) => dispatch(addCommentModalClose(data))
+  closeAddCommentModal: (data) => dispatch(addCommentModalClose(data)),
+  closeEditCommentModal: (data) => dispatch(editCommentModalClose(data))
 })
 
 export default connect(
