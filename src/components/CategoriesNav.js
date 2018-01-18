@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink, withRouter } from 'react-router-dom'
 
-function CategoriesNav(props) {
+function CategoriesNav({ categories }) {
     return (
       <div className="tabs  is-centered  is-marginless">
         <ul className="capitalise">
@@ -13,7 +13,7 @@ function CategoriesNav(props) {
               activeClassName="is-active"
             >All</NavLink>
           </li>
-          {props.categories.map((category) => (
+          {categories.map((category) => (
             <li key={category.path}>
               <NavLink
                 to={`/${category.name}`}

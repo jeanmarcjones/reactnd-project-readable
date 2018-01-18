@@ -1,10 +1,10 @@
 import React from 'react'
 import GoComment from 'react-icons/lib/go/comment'
 
-function CommentCount(props) {
+function CommentCount({ count }) {
   return (
     <div className="comment-count">
-      <GoComment style={{ verticalAlign: 'text-top' }}/> {props.count}
+      <GoComment style={{ verticalAlign: 'text-top' }}/> {count}
     </div>
   )
 }
