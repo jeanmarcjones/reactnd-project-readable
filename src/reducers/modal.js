@@ -1,10 +1,16 @@
 import {
   ADD_COMMENT_MODAL_OPEN,
-  ADD_COMMENT_MODAL_CLOSE
+  ADD_COMMENT_MODAL_CLOSE,
+  EDIT_COMMENT_MODAL_OPEN,
+  EDIT_COMMENT_MODAL_CLOSE
 } from "../actions/modal";
 
 const initialState = {
-  addCommentModalOpen: false
+  addCommentModalOpen: false,
+  editCommentModalOpen: {
+    isOpen: false,
+    commentId: ''
+  }
 }
 
 export default function modal(state = initialState, action) {
@@ -18,6 +24,24 @@ export default function modal(state = initialState, action) {
      return {
        ...state,
        addCommentModalOpen: false
+     }
+   case EDIT_COMMENT_MODAL_OPEN :
+     return {
+       ...state,
+       editCommentModalOpen: {
+         ...state.editCommentModalOpen,
+         isOpen: true,
+         commentId: action.id
+       }
+     }
+   case EDIT_COMMENT_MODAL_CLOSE :
+     return {
+       ...state,
+       editCommentModalOpen: {
+         ...state.editCommentModalOpen,
+         isOpen: false,
+         commentId: ''
+       }
      }
    default :
      return state
