@@ -2,12 +2,16 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Post from './Post'
+import SortPosts from './SortPosts'
 
 function PostsList({ posts, match }) {
   return (
     <div className="container">
       <div className="level">
-        <div className="level-item  has-text-centered">
+        <div className="level-left">
+          <SortPosts className="level-item"/>
+        </div>
+        <div className="level-right">
           <Link
             to='/add-post'
             className="level-item  button  is-success  is-outlined"
@@ -18,7 +22,7 @@ function PostsList({ posts, match }) {
         .filter((post) => match.params.category ? post.category === match.params.category : true)
         .map((post) => (
           <Post key={post.id} post={post}/>
-      ))}
+        ))}
     </div>
   )
 }

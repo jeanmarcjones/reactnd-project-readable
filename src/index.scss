@@ -13,8 +13,8 @@
 // ----------------------------
 
 .tabs li a.is-active {
-  border-bottom-color: #3273dc;
-  color: #3273dc;
+  border-bottom-color: $blue;
+  color: $blue;
 }
 
 // --------------------
@@ -102,5 +102,29 @@
   .subtitle {
     margin: -1.3rem 0 0.45rem !important;
   }
+}
+
+// -----------
+// Tags styles
+// -----------
+
+.tags {
+  display: inline-block !important;
+}
+
+.tag {
+  border: 1px solid $grey-lighter;
+
+  &:hover {
+    cursor: pointer;
+    background-color: transparent;
+    //color: $white;
+    //background-color: $grey-darker;
+  }
+}
+
+.tags--title {
+  display: inline-block;
+  margin-right: 10px;
 }
 
