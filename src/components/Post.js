@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import moment from 'moment'
 import { removePost } from '../actions/posts'
 import VoteScore from './VoteScore'
 import CommentCount from './CommentCount'
@@ -9,7 +10,9 @@ function Post({ post, remove }) {
   return (
     <div className="box">
       <p className="title">{post.title}</p>
-      <p className="subtitle  capitalise">Author: <strong>{post.author}</strong></p>
+      <p className="subtitle  capitalise">Author: <strong>{post.author}</strong><br/>on <strong>
+        {moment(post.timestamp).format('DD MMMM YYYY')}</strong> at <strong>
+        {moment(post.timestamp).format('HH:MM')}</strong></p>
       <div className="level">
         <div className="level-left">
           <CommentCount
