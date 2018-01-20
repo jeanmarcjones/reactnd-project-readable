@@ -4,8 +4,6 @@ export function capitalize (str = '') {
     : str[0].toUpperCase() + str.slice(1)
 }
 
-export function _throw (m) { throw m }
-
 export function uuid () {
   return 'xxxxxxxxxxxxxxxxxxxxxx'.replace(/[x]/g, (c) => {
     let r = Math.random() * 16 | 0,
