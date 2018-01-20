@@ -3,6 +3,7 @@ import {
   ADD_POST,
   UPDATE_POST,
   DELETE_POST,
+  SORT_POST,
   INCREASE_COMMENTS,
   DECREASE_COMMENTS
 } from '../actions/posts'
@@ -45,8 +46,24 @@ export default function posts(state = initialState, action) {
       delete state.byId[action.id]
 
       return {
+        ...state,
         byId: { ...state.byId },
         allIds: prunedIds
+      }
+    case SORT_POST :
+      const { sortKey } = action
+      const sorted = state.allIds.sort((a, b) => {
+        if( state.byId[a][sortKey] < state.byId[b][sortKey] ) return -1
+        if( state.byId[a][sortKey] > state.byId[b][sortKey] ) return 1
+        return 0
+      })
+
+      return {
+        ...state,
+        byId: {
+          ...state.byId,
+          ...sorted
+        }
       }
     case INCREASE_COMMENTS :
       return {

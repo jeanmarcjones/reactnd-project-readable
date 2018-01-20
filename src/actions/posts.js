@@ -7,6 +7,7 @@ export const GET_POST = 'GET_POST'
 export const ADD_POST = 'ADD_POST'
 export const UPDATE_POST = 'UPDATE_POST'
 export const DELETE_POST = 'DELETE_POST'
+export const SORT_POST = 'SORT_POST'
 export const INCREASE_COMMENTS = 'INCREASE_COMMENTS'
 export const DECREASE_COMMENTS = 'DECREASE_COMMENTS'
 
@@ -33,6 +34,11 @@ export const updatePost = ({ post }) => ({
 export const deletePost = ({ id }) => ({
   type: DELETE_POST,
   id
+})
+
+export const sortPost = ({ sortKey }) => ({
+  type: SORT_POST,
+  sortKey
 })
 
 export const increaseComments = ({ id }) => ({
