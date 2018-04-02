@@ -4,7 +4,7 @@ My submission for Udacity's Redux course. Users can post content to predefined c
 
 ## TL;DR
 
-To get started developing right away:
+To view the project you must:
 
 * Start backend sever (see Backend Server section)
 * install all project dependencies with `npm install`
