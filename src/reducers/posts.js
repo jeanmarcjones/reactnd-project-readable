@@ -14,6 +14,14 @@ const initialState = {
 }
 
 export default function posts(state = initialState, action) {
+  const prunedIds = state.allIds.filter((item) => item !== action.id )
+  const { sortKey } = action
+  const sorted = state.allIds.sort((a, b) => {
+    if( state.byId[a][sortKey] < state.byId[b][sortKey] ) return -1
+    if( state.byId[a][sortKey] > state.byId[b][sortKey] ) return 1
+    return 0
+  })
+
   switch(action.type) {
     case RECEIVE_POSTS :
       return {
@@ -42,7 +50,6 @@ export default function posts(state = initialState, action) {
         }
       }
     case DELETE_POST :
-      const prunedIds = state.allIds.filter((item) => item !== action.id )
       delete state.byId[action.id]
 
       return {
@@ -51,13 +58,6 @@ export default function posts(state = initialState, action) {
         allIds: prunedIds
       }
     case SORT_POST :
-      const { sortKey } = action
-      const sorted = state.allIds.sort((a, b) => {
-        if( state.byId[a][sortKey] < state.byId[b][sortKey] ) return -1
-        if( state.byId[a][sortKey] > state.byId[b][sortKey] ) return 1
-        return 0
-      })
-
       return {
         ...state,
         byId: {

@@ -11,6 +11,8 @@ const initialState = {
 }
 
 export default function comments(state = initialState, action) {
+  const prunedIds = state.allIds.filter((item) => item !== action.id )
+
   switch(action.type) {
     case RECEIVE_COMMENTS :
       return {
@@ -39,7 +41,6 @@ export default function comments(state = initialState, action) {
         }
       }
     case DELETE_COMMENT :
-      const prunedIds = state.allIds.filter((item) => item !== action.id )
       delete state.byId[action.id]
 
       return {
