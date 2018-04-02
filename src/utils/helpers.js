@@ -1,3 +1,9 @@
+import moment from 'moment';
+
+export const dateFormat = (timestamp, format) => {
+  return moment(timestamp).format(format);
+}
+
 export function capitalize (str = '') {
   return typeof str !== 'string'
     ? ''

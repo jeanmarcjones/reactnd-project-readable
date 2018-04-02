@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Modal from 'react-modal'
-import moment from 'moment'
 import { removePost } from "../actions/posts"
 import  { addCommentModalOpen, addCommentModalClose, editCommentModalClose } from '../actions/modal'
 import CommentsList from './CommentsLists'
@@ -10,6 +9,7 @@ import CommentCount from './CommentCount'
 import VoteScore from './VoteScore'
 import AddComment from './AddComment'
 import EditComment from './EditComment'
+import { dateFormat } from '../utils/helpers'
 
 function PostDetails({
   post,
@@ -30,9 +30,10 @@ function PostDetails({
           <div className="content  post-details">
             <p className="title  is-3"><strong>{post.title}</strong></p>
             <p className="subtitle  is-5">By <strong>{post.author}</strong></p>
-            <p className="subtitle  capitalise">Author: <strong>{post.author}</strong><br/>on <strong>
-              {moment(post.timestamp).format('DD MMMM YYYY')}</strong> at <strong>
-              {moment(post.timestamp).format('HH:MM')}</strong></p>
+            <p className="subtitle  capitalise">
+              On <strong>{dateFormat(post.timestamp, 'DD MMMM YYYY')}</strong> at
+              <strong> {dateFormat(post.timestamp, 'HH:MM')}</strong>
+            </p>
             <CommentCount count={post.commentCount}/>
             <VoteScore
               info={{
