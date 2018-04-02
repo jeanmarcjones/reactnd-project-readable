@@ -38,12 +38,13 @@ class AddPost extends Component {
     })
   }
   render() {
-    const { post } = this.state
+    const { post: { title, author, category, body }} = this.state
+    const { handleInputChange, handleSubmit } = this
 
     return (
       <div className="container">
         <h2 className="title">Add Post</h2>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <div className="field">
             <label className="label">Title</label>
             <div className="control">
@@ -51,8 +52,8 @@ class AddPost extends Component {
                 name="title"
                 className="input"
                 type="text"
-                value={post.title}
-                onChange={this.handleInputChange}
+                value={title}
+                onChange={handleInputChange}
                 placeholder="Text input"
                 required/>
             </div>
@@ -64,8 +65,8 @@ class AddPost extends Component {
                 name="author"
                 className="input"
                 type="text"
-                value={post.author}
-                onChange={this.handleInputChange}
+                value={author}
+                onChange={handleInputChange}
                 placeholder="Text input"
                 required/>
             </div>
@@ -76,8 +77,8 @@ class AddPost extends Component {
               <div className="select">
                 <select
                   name="category"
-                  value={post.category}
-                  onChange={this.handleInputChange}
+                  value={category}
+                  onChange={handleInputChange}
                   required>
                   {this.props.categories.map((category) => (
                     <option
@@ -95,7 +96,7 @@ class AddPost extends Component {
               <textarea
                 name="body"
                 className="textarea"
-                value={post.body}
+                value={body}
                 onChange={this.handleInputChange}
                 placeholder="Text input"
                 required/>

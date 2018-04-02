@@ -6,23 +6,26 @@ import { removePost } from '../actions/posts'
 import VoteScore from './VoteScore'
 import CommentCount from './CommentCount'
 
-function Post({ post, remove }) {
+function Post({
+  post: { id, title, author, category, commentCount, timestamp, voteScore },
+  remove
+}) {
   return (
     <div className="box">
-      <p className="title">{post.title}</p>
-      <p className="subtitle  is-capitalized">Author: <strong>{post.author}</strong><br/>on <strong>
-        {moment(post.timestamp).format('DD MMMM YYYY')}</strong> at <strong>
-        {moment(post.timestamp).format('HH:MM')}</strong></p>
+      <p className="title">{title}</p>
+      <p className="subtitle  is-capitalized">Author: <strong>{author}</strong><br/>on <strong>
+        {moment(timestamp).format('DD MMMM YYYY')}</strong> at <strong>
+        {moment(timestamp).format('HH:MM')}</strong></p>
       <div className="level">
         <div className="level-left">
           <CommentCount
-            count={post.commentCount}
+            count={commentCount}
             className="level-item"
           />
           <VoteScore
             info={{
-              score: post.voteScore,
-              id: post.id,
+              score: voteScore,
+              id: id,
               component: 'posts'
             }}
             className="level-item"
@@ -30,15 +33,15 @@ function Post({ post, remove }) {
         </div>
         <div className="level-right">
           <Link
-            to={`/${post.category}/${post.id}`}
+            to={`/${category}/${id}`}
             className="level-item  button"
           >Details</Link>
           <Link
-            to={`/edit-post/${post.id}`}
+            to={`/edit-post/${id}`}
             className="level-item  button"
           >Edit</Link>
           <a
-            onClick={() => remove({ id: post.id })}
+            onClick={() => remove({ id: id })}
             className="level-item  button  is-danger  is-outlined"
           >Delete</a>
         </div>
