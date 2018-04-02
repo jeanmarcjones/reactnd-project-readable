@@ -10,7 +10,7 @@ function Post({ post, remove }) {
   return (
     <div className="box">
       <p className="title">{post.title}</p>
-      <p className="subtitle  capitalise">Author: <strong>{post.author}</strong><br/>on <strong>
+      <p className="subtitle  is-capitalized">Author: <strong>{post.author}</strong><br/>on <strong>
         {moment(post.timestamp).format('DD MMMM YYYY')}</strong> at <strong>
         {moment(post.timestamp).format('HH:MM')}</strong></p>
       <div className="level">

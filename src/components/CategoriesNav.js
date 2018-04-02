@@ -5,7 +5,7 @@ import { NavLink, withRouter } from 'react-router-dom'
 function CategoriesNav({ categories }) {
     return (
       <div className="tabs  is-centered  is-marginless">
-        <ul className="capitalise">
+        <ul className="is-capitalized">
           <li>
             <NavLink
               exact
