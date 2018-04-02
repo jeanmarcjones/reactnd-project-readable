@@ -1,10 +1,11 @@
 import * as CommentAPI from '../utils/api_comments'
 import { increaseComments, decreaseComments } from './posts'
-
-export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS'
-export const ADD_COMMENT = 'ADD_COMMENT'
-export const UPDATE_COMMENT = 'UPDATE_COMMENT'
-export const DELETE_COMMENT = 'DELETE_COMMENT'
+import {
+  RECEIVE_COMMENTS,
+  ADD_COMMENT,
+  UPDATE_COMMENT,
+  DELETE_COMMENT
+} from '../actions/types'
 
 export const receiveComments = ({ comments }) => ({
   type: RECEIVE_COMMENTS,

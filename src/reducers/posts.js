@@ -6,7 +6,7 @@ import {
   SORT_POST,
   INCREASE_COMMENTS,
   DECREASE_COMMENTS
-} from '../actions/posts'
+} from '../actions/types'
 
 const initialState = {
   byId: {},

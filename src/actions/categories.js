@@ -1,7 +1,8 @@
 import * as CategoriesAPI from '../utils/api_categories'
-
-export const RECEIVE_CATEGORY = 'RECEIVE_CATEGORY'
-export const ADD_CATEGORY = 'ADD_CATEGORY'
+import {
+  RECEIVE_CATEGORY,
+  ADD_CATEGORY
+} from '../actions/types'
 
 export const receiveCategories = ({ categories }) => ({
   type: RECEIVE_CATEGORY,

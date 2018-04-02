@@ -3,7 +3,7 @@ import {
   ADD_COMMENT,
   UPDATE_COMMENT,
   DELETE_COMMENT
-} from '../actions/comments'
+} from '../actions/types'
 
 const initialState = {
   byId: {},

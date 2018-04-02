@@ -3,7 +3,7 @@ import {
   ADD_COMMENT_MODAL_CLOSE,
   EDIT_COMMENT_MODAL_OPEN,
   EDIT_COMMENT_MODAL_CLOSE
-} from "../actions/modal";
+} from '../actions/types'
 
 const initialState = {
   addCommentModalOpen: false,

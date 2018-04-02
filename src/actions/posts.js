@@ -1,14 +1,15 @@
 import * as PostsAPI from '../utils/api_posts'
 import history from '../history'
 import { receiveComments } from "./comments";
-
-export const RECEIVE_POSTS = 'RECEIVE_POSTS'
-export const ADD_POST = 'ADD_POST'
-export const UPDATE_POST = 'UPDATE_POST'
-export const DELETE_POST = 'DELETE_POST'
-export const SORT_POST = 'SORT_POST'
-export const INCREASE_COMMENTS = 'INCREASE_COMMENTS'
-export const DECREASE_COMMENTS = 'DECREASE_COMMENTS'
+import {
+  RECEIVE_POSTS,
+  ADD_POST,
+  UPDATE_POST,
+  DELETE_POST,
+  SORT_POST,
+  INCREASE_COMMENTS,
+  DECREASE_COMMENTS
+} from '../actions/types'
 
 export const receivePosts = ({ posts }) => ({
   type: RECEIVE_POSTS,

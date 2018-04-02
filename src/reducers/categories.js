@@ -1,7 +1,7 @@
 import {
   RECEIVE_CATEGORY,
   ADD_CATEGORY
-} from '../actions/categories'
+} from '../actions/types'
 
 export default function categories(state = {}, action) {
   const { categories, name, path } = action
