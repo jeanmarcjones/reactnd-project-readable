@@ -10,11 +10,9 @@ import CommentCount from './CommentCount'
 import VoteScore from './VoteScore'
 import AddComment from './AddComment'
 import EditComment from './EditComment'
-import NoMatch from './NoMatch'
 
 function PostDetails({
   post,
-  post: { id, title, author, body, commentCount, voteScore, timestamp  },
   match,
   remove,
   addCommentModalOpen,
@@ -22,7 +20,7 @@ function PostDetails({
   closeAddCommentModal,
   editCommentModalOpen,
   closeEditCommentModal,
-  commentToEdit,
+  commentToEdit
 }) {
   // Waits till post has been populated before showing details
   return post
@@ -30,30 +28,29 @@ function PostDetails({
       <article className="media">
         <div className="media-content">
           <div className="content  post-details">
-            <p className="title  is-3"><strong>{title}</strong></p>
-            <p className="subtitle  is-5">By <strong>{author}</strong></p>
-            <p className="subtitle  capitalise">
-              on <strong>{moment(timestamp).format('DD MMMM YYYY')}</strong>
-              at <strong>{moment(timestamp).format('HH:MM')}</strong>
-            </p>
-            <CommentCount count={commentCount}/>
+            <p className="title  is-3"><strong>{post.title}</strong></p>
+            <p className="subtitle  is-5">By <strong>{post.author}</strong></p>
+            <p className="subtitle  capitalise">Author: <strong>{post.author}</strong><br/>on <strong>
+              {moment(post.timestamp).format('DD MMMM YYYY')}</strong> at <strong>
+              {moment(post.timestamp).format('HH:MM')}</strong></p>
+            <CommentCount count={post.commentCount}/>
             <VoteScore
               info={{
-                score: voteScore,
-                id: id,
+                score: post.voteScore,
+                id: post.id,
                 component: 'posts'
               }}
             />
             <p className="post-details__body">
-              {body}
+              {post.body}
             </p>
             <div className="post-details__buttons">
               <Link
-                to={`/edit-post/${id}`}
+                to={`/edit-post/${post.id}`}
                 className="button"
               >Edit</Link>
               <a
-                onClick={() => remove({ id: id })}
+                onClick={() => remove({ id: post.id })}
                 className="button  is-danger  is-outlined"
               >Delete</a>
               <div
@@ -73,7 +70,7 @@ function PostDetails({
           appElement={document.getElementById('root')}
         >
           {addCommentModalOpen && (
-            <AddComment id={id}/>
+            <AddComment id={post.id}/>
           )}
         </Modal>
       )}
@@ -90,7 +87,7 @@ function PostDetails({
         </Modal>
       )}
     </div>
-    : <NoMatch/>
+    : <p>Loading</p>
 }
 
 const mapStateToProps = ({ posts, modal }, ownProps) => ({
