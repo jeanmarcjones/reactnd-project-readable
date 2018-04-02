@@ -32,6 +32,12 @@ class App extends Component {
           <Switch>
             <Route
               exact
+              path="/"
+              render={(props) => (
+                <PostsList {...props}/>
+              )}/>
+            <Route
+              exact
               path="/add-post"
               render={() => (
                 <AddPost/>
@@ -41,12 +47,6 @@ class App extends Component {
               path="/edit-post/:id"
               render={(props) => (
                 <EditPost {...props}/>
-              )}/>
-            <Route
-              exact
-              path="/"
-              render={(props) => (
-                <PostsList {...props}/>
               )}/>
             <Route
               exact
