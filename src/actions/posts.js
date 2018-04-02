@@ -3,7 +3,6 @@ import history from '../history'
 import { receiveComments } from "./comments";
 
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
-export const GET_POST = 'GET_POST'
 export const ADD_POST = 'ADD_POST'
 export const UPDATE_POST = 'UPDATE_POST'
 export const DELETE_POST = 'DELETE_POST'
@@ -14,11 +13,6 @@ export const DECREASE_COMMENTS = 'DECREASE_COMMENTS'
 export const receivePosts = ({ posts }) => ({
   type: RECEIVE_POSTS,
   posts
-})
-
-export const getPost = ({ post }) => ({
-  type: GET_POST,
-  post
 })
 
 export const addPost = ({ post }) => ({
@@ -51,14 +45,6 @@ export const decreaseComments = ({ id }) => ({
   id
 })
 
-export const fetchPost = ({ id }) => (dispatch) => (
-  PostsAPI
-    .fetchPost(id)
-    .then((res) => {
-      dispatch(getPost({ post: res }))
-    })
-)
-
 export const fetchPostsWithComments = () => (dispatch, getState) => (
   PostsAPI
     .fetchPosts()
@@ -71,7 +57,7 @@ export const fetchPostsWithComments = () => (dispatch, getState) => (
       dispatch(fetchPostComments({ posts: getState().posts }))
     })
     .catch((error) => {
-      console.log('Looks like there was a problem: \n', error);
+      console.log('Looks like there was a problem: \n', error)
     })
 )
 
@@ -91,9 +77,8 @@ export const fetchPostComments = ({ posts }) => (dispatch) => (
           dispatch(receiveComments({ comments: res }))
         })
         .catch((error) => {
-          console.log('Looks like there was a problem: \n', error);
-        }
-      )
+          console.log('Looks like there was a problem: \n', error)
+        })
     }
   )
 )
