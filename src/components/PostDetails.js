@@ -10,6 +10,7 @@ import CommentCount from './CommentCount'
 import VoteScore from './VoteScore'
 import AddComment from './AddComment'
 import EditComment from './EditComment'
+import NoMatch from './NoMatch'
 
 function PostDetails({
   post,
@@ -87,7 +88,7 @@ function PostDetails({
         </Modal>
       )}
     </div>
-    : <p>Loading</p>
+    : <NoMatch/>
 }
 
 const mapStateToProps = ({ posts, modal }, ownProps) => ({
