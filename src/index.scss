@@ -21,6 +21,14 @@ $transition-short-duration: 0.25s;
 
 .title__link {
   display: inline-block;
+  -webkit-transition: opacity $transition-short-duration;
+  -moz-transition: opacity $transition-short-duration;
+  -o-transition: opacity $transition-short-duration;
+  transition: opacity $transition-short-duration;
+
+  &:hover {
+    opacity: 0.75;
+  }
 }
 
 // --------------------
