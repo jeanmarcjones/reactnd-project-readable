@@ -12,7 +12,10 @@ function Post({
 }) {
   return (
     <div className="box">
-      <p className="title">{title}</p>
+      <Link
+        to={`/${category}/${id}`}
+        className="title  title__link"
+      >{title}</Link>
       <p className="subtitle  is-5">By <strong>{author}</strong></p>
       <p className="subtitle  capitalise">
         On <strong>{dateFormat(timestamp, 'DD MMMM YYYY')}</strong> at
@@ -36,7 +39,7 @@ function Post({
         <div className="level-right">
           <Link
             to={`/${category}/${id}`}
-            className="level-item  button"
+            className="level-item  button  button--transition"
           >Details</Link>
           <Link
             to={`/edit-post/${id}`}
