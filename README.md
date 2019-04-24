@@ -7,6 +7,7 @@ on posts and comments. Users can also edit and delete posts and comments.
 
 To view the project you must:
 
+* Install node 8.16.0
 * Start the server (see Server section)
 * Install all project dependencies with `npm install`
 * Start the development server with `npm start`
