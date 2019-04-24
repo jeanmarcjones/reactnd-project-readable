@@ -4,7 +4,22 @@
 // Variables
 // ---------
 
+$transition-easing: ease;
 $transition-short-duration: 0.25s;
+
+// ------
+// Mixins
+// ------
+
+@mixin multiple-transitions($duration, $easing, $properties...) {
+  $value: null;
+
+  @each $property in $properties {
+      $value: append($value, $property $duration $easing, $separator: comma);
+  }
+
+  transition: $value;
+}
 
 // ----------------------------
 // Post type filter tabs styles
@@ -21,9 +36,6 @@ $transition-short-duration: 0.25s;
 
 .title__link {
   display: inline-block;
-  -webkit-transition: opacity $transition-short-duration;
-  -moz-transition: opacity $transition-short-duration;
-  -o-transition: opacity $transition-short-duration;
   transition: opacity $transition-short-duration;
 
   &:hover {
@@ -64,10 +76,7 @@ $transition-short-duration: 0.25s;
 
   .vote-score__up,
   .vote-score__down {
-    -webkit-transition: color 0.35s;
-    -moz-transition: color 0.35s;
-    -o-transition: color 0.35s;
-    transition: color 0.35s;
+    transition: color 0.35s ease-out;
 
     &:hover {
       cursor: pointer;
@@ -137,8 +146,6 @@ $transition-short-duration: 0.25s;
 // Button styles
 // -------------
 
-
-
 .button--spacer {
 
   :not(:last-child) {
@@ -147,16 +154,5 @@ $transition-short-duration: 0.25s;
 }
 
 .button--transition {
-  -webkit-transition: background-color $transition-short-duration,
-                      border-color $transition-short-duration,
-                      color $transition-short-duration;
-  -moz-transition: background-color $transition-short-duration,
-                   border-color $transition-short-duration,
-                   color $transition-short-duration;
-  -o-transition: background-color $transition-short-duration,
-                 border-color $transition-short-duration,
-                 color $transition-short-duration;
-  transition: background-color $transition-short-duration,
-              border-color $transition-short-duration,
-              color $transition-short-duration;
+  @include multiple-transitions($transition-short-duration, $transition-easing, background-color, border-color, color)
 }
