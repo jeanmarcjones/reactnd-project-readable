@@ -56,10 +56,10 @@ $transition-short-duration: 0.25s;
 
   .vote-score__up,
   .vote-score__down {
-    -webkit-transition: color 0.35s ease;
-    -moz-transition: color 0.35s ease;
-    -o-transition: color 0.35s ease;
-    transition: color 0.35s ease;
+    -webkit-transition: color 0.35s;
+    -moz-transition: color 0.35s;
+    -o-transition: color 0.35s;
+    transition: color 0.35s;
 
     &:hover {
       cursor: pointer;
