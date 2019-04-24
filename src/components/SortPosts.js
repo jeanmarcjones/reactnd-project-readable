@@ -11,11 +11,11 @@ function SortPosts({ sort }) {
       <div className="tags">
         <span
           onClick={() => sort({ sortKey: 'voteScore' })}
-          className="tag  is-medium"
+          className="tag  button--transition  is-medium"
         >Score</span>
         <span
           onClick={() => sort({ sortKey: 'timestamp' })}
-          className="tag  is-medium"
+          className="tag  button--transition  is-medium"
         >Date</span>
       </div>
     </Fragment>

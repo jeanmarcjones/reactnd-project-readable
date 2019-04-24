@@ -1,5 +1,11 @@
 @import 'bulma/bulma.sass';
 
+// --------
+// Variable
+// --------
+
+$transition-short-duration: 0.25s;
+
 // ----------------------------
 // Post type filter tabs styles
 // ----------------------------
@@ -7,6 +13,14 @@
 .tabs li a.is-active {
   border-bottom-color: $blue;
   color: $blue;
+}
+
+// ------------
+// Title styles
+// ------------
+
+.title__link {
+  display: inline-block;
 }
 
 // --------------------
@@ -120,3 +134,23 @@
   margin-right: 10px;
 }
 
+// -------------
+// Button styles
+// -------------
+
+
+
+.button--transition {
+  -webkit-transition: background-color $transition-short-duration,
+                      border-color $transition-short-duration,
+                      color $transition-short-duration;
+  -moz-transition: background-color $transition-short-duration,
+                   border-color $transition-short-duration,
+                   color $transition-short-duration;
+  -o-transition: background-color $transition-short-duration,
+                 border-color $transition-short-duration,
+                 color $transition-short-duration;
+  transition: background-color $transition-short-duration,
+              border-color $transition-short-duration,
+              color $transition-short-duration;
+}

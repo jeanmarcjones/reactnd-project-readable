@@ -104,7 +104,7 @@ class AddPost extends Component {
           </div>
           <div className="field">
             <div className="control">
-              <button className="button is-link">Submit</button>
+              <button className="button  button--transition  is-link">Submit</button>
             </div>
           </div>
         </form>

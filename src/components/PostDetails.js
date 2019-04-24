@@ -49,15 +49,15 @@ function PostDetails({
             <div className="post-details__buttons">
               <Link
                 to={`/edit-post/${post.id}`}
-                className="button"
+                className="button  button--transition"
               >Edit</Link>
               <a
                 onClick={() => remove({ id: post.id })}
-                className="button  is-danger  is-outlined"
+                className="button  button--transition  is-danger  is-outlined"
               >Delete</a>
               <div
                 onClick={() => openAddCommentModal()}
-                className="button  is-success  is-outlined"
+                className="button  button--transition  is-success  is-outlined"
               >Add Comment</div>
             </div>
         </div>

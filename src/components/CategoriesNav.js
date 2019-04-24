@@ -17,6 +17,7 @@ function CategoriesNav({ categories }) {
             <li key={category.path}>
               <NavLink
                 to={`/${category.name}`}
+                className="button--transition"
                 activeClassName="is-active"
               >{category.name}</NavLink>
             </li>

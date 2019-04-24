@@ -46,14 +46,14 @@ let AddComment = ({ id, add, handleSubmit, closeAddCommentModal }) => {
         </div>
         <div className="field">
           <div className="control">
-            <button className="button is-link">Submit</button>
+            <button className="button  button--transition  is-link">Submit</button>
           </div>
         </div>
         <div className="field">
           <div className="control">
             <button
               onClick={() => closeAddCommentModal()}
-              className="button is-link  is-danger"
+              className="button  button--transition  is-link  is-danger"
             >Cancel</button>
           </div>
         </div>

@@ -14,7 +14,7 @@ function PostsList({ posts, match }) {
         <div className="level-right">
           <Link
             to='/add-post'
-            className="level-item  button  is-success  is-outlined"
+            className="level-item  button  button--transition  is-success  is-outlined"
           >Add post</Link>
         </div>
       </div>
