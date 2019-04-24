@@ -17,8 +17,8 @@ export default function posts(state = initialState, action) {
   const prunedIds = state.allIds.filter((item) => item !== action.id )
   const { sortKey } = action
   const sorted = state.allIds.sort((a, b) => {
-    if( state.byId[a][sortKey] < state.byId[b][sortKey] ) return -1
-    if( state.byId[a][sortKey] > state.byId[b][sortKey] ) return 1
+    if( state.byId[a][sortKey] < state.byId[b][sortKey] ) return 1
+    if( state.byId[a][sortKey] > state.byId[b][sortKey] ) return -1
     return 0
   })
 
