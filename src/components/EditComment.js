@@ -42,15 +42,11 @@ let EditComment = ({ id, edit, handleSubmit, closeEditCommentModal }) => {
           </div>
         </div>
         <div className="field">
-          <div className="control">
-            <button className="button  button--transition is-link">Submit</button>
-          </div>
-        </div>
-        <div className="field">
-          <div className="control">
+          <div className="control  button--spacer">
+            <button className="button  button--transition  is-link">Submit</button>
             <button
               onClick={() => closeEditCommentModal()}
-              className="button  button--transition is-link  is-danger"
+              className="button  button--transition  is-danger"
             >Cancel</button>
           </div>
         </div>
