@@ -10,6 +10,7 @@ function CategoriesNav({ categories }) {
             <NavLink
               exact
               to="/"
+              className="button--transition"
               activeClassName="is-active"
             >All</NavLink>
           </li>
