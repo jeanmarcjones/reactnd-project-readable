@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import { sortPost } from '../actions/posts'
 
 function SortPosts({ sort }) {
   return(
-    <div>
+    <Fragment>
       <p className="tags--title  is-size-4  has-text-weight-semibold">
         Sort Posts:
       </p>
@@ -18,7 +18,7 @@ function SortPosts({ sort }) {
           className="tag  is-medium"
         >Date</span>
       </div>
-    </div>
+    </Fragment>
   )
 }
 

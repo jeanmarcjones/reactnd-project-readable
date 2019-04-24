@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { Route, Link, Switch, withRouter } from 'react-router-dom'
 import { fetchCategories } from "../actions/categories";
@@ -17,7 +17,7 @@ class App extends Component {
   }
   render() {
     return (
-      <div>
+      <Fragment>
         <header className="hero  is-primary">
           <div className="hero-body">
             <div className="container">
@@ -62,7 +62,7 @@ class App extends Component {
               )}/>
           </Switch>
         </div>
-      </div>
+      </Fragment>
     )
   }
 }
