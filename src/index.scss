@@ -92,13 +92,6 @@ $transition-short-duration: 0.25s;
     margin-top: 0.9rem;
   }
 
-  .post-details__buttons {
-
-    :not(:last-child) {
-      margin-right: 0.7rem;
-    }
-  }
-
 // --------------
 // Comment styles
 // --------------
@@ -139,6 +132,13 @@ $transition-short-duration: 0.25s;
 // -------------
 
 
+
+.button--spacer {
+
+  :not(:last-child) {
+    margin-right: 0.7rem;
+  }
+}
 
 .button--transition {
   -webkit-transition: background-color $transition-short-duration,
