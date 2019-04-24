@@ -1,8 +1,8 @@
 @import 'bulma/bulma.sass';
 
-// --------
-// Variable
-// --------
+// ---------
+// Variables
+// ---------
 
 $transition-short-duration: 0.25s;
 
@@ -125,8 +125,6 @@ $transition-short-duration: 0.25s;
   &:hover {
     cursor: pointer;
     background-color: transparent;
-    //color: $white;
-    //background-color: $grey-darker;
   }
 }
 
