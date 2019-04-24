@@ -55,6 +55,7 @@ export const fetchPostsWithComments = () => (dispatch, getState) => (
     }))))
     .then((res) => {
       dispatch(receivePosts({ posts: res }))
+      dispatch(sortPost({ sortKey: 'timestamp' }))
       dispatch(fetchPostComments({ posts: getState().posts }))
     })
     .catch((error) => {
