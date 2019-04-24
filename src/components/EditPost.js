@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
 import { editPost } from '../actions/posts'
 import { capitalize } from '../utils/helpers'
+import history from "../history"
 
 let EditPost = ({ handleSubmit, categories, edit }) => {
   const onSubmit = (values) => {
@@ -68,11 +69,12 @@ let EditPost = ({ handleSubmit, categories, edit }) => {
           </div>
         </div>
         <div className="field">
-          <div className="control">
+          <div className="control  button--spacer">
+            <button className="button  button--transition  is-link">Submit</button>
             <button
-              className="button is-link"
-            >Submit
-            </button>
+              onClick={history.goBack}
+              className="button  button--transition  is-danger"
+            >Cancel</button>
           </div>
         </div>
       </form>

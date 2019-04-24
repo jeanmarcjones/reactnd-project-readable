@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import history from '../history'
 import { createPost } from '../actions/posts'
 import { uuid, capitalize } from '../utils/helpers'
 
@@ -103,8 +104,12 @@ class AddPost extends Component {
             </div>
           </div>
           <div className="field">
-            <div className="control">
+            <div className="control  button--spacer">
               <button className="button  button--transition  is-link">Submit</button>
+              <button
+                onClick={history.goBack}
+                className="button  button--transition  is-danger"
+              >Cancel</button>
             </div>
           </div>
         </form>
