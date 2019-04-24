@@ -16,7 +16,7 @@ let EditComment = ({ id, edit, handleSubmit, closeEditCommentModal }) => {
   }
   return (
     <div className="">
-      <h2 className="title">Add Comment</h2>
+      <h2 className="title">Edit Comment</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="field">
           <label className="label">Author</label>
