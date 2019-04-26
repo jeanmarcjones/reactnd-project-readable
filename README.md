@@ -18,8 +18,8 @@ You may use `npm` instead of `yarn` to install dependencies and start the develo
 
 ### Server
 
-You will need to run a local node server for this app to work, it can be downloaded from here 
-[Readable API Server](https://github.com/udacity/reactnd-project-readable-starter).
+You will need to run a local node server for this app to work, it can be downloaded 
+[here](https://github.com/udacity/reactnd-project-readable-starter).
 
 ### Contributing
 
