@@ -3,7 +3,9 @@
 My submission for Udacity's Redux course. Users can post content to predefined categories, comment on posts, and vote 
 on posts and comments. Users can also edit and delete posts and comments.
 
-### Usage
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+
+### Getting started
 
 To view the project you must:
 
@@ -17,13 +19,7 @@ To view the project you must:
 You will need to run a local node server for this app to work, it can be downloaded from here 
 [Readable API Server](https://github.com/udacity/reactnd-project-readable-starter).
 
-## Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). You can 
-find more information on how to perform common tasks 
-[here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
-
-## Contributing
+### Contributing
 
 This repository is a personal project. Therefore, pull requests will not be accepted.
 
