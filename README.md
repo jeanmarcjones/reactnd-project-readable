@@ -26,3 +26,7 @@ find more information on how to perform common tasks
 ## Contributing
 
 This repository is a personal project. Therefore, pull requests will not be accepted.
+
+### Licence
+
+This project is licensed under the Unlicense license.
