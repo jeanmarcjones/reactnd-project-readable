@@ -9,12 +9,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 To view the project you must:
 
-* Install node 8
 * Start the server (see Server section)
 * Install all project dependencies with `yarn install`
 * Start the development server with `yarn start`
 
 You may use `npm` instead of `yarn` to install dependencies and start the development server.
+
+### Supported Node versions
+
+This project requires Node 8.
 
 ### Server
 
