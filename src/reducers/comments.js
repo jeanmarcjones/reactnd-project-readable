@@ -21,7 +21,7 @@ export default function comments(state = initialState, action) {
           ...state.byId,
           ...action.comments
         },
-        allIds: Object.keys(action.comments).map((k) => k)
+        allIds: [ ...state.allIds,  ...Object.keys(action.comments).map((k) => k) ]
       }
     case ADD_COMMENT :
       return {
