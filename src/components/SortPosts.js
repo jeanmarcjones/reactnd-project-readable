@@ -5,19 +5,17 @@ import { sortPost } from '../actions/posts'
 function SortPosts({ sort }) {
   return(
     <Fragment>
-      <p className="tags--title  is-size-4  has-text-weight-semibold">
+      <p className="level-item  sort-posts__title  is-size-4  has-text-weight-semibold">
         Sort Posts:
       </p>
-      <div className="tags">
-        <span
-          onClick={() => sort({ sortKey: 'voteScore' })}
-          className="tag  button--transition  is-medium"
-        >Score</span>
-        <span
-          onClick={() => sort({ sortKey: 'timestamp' })}
-          className="tag  button--transition  is-medium"
-        >Date</span>
-      </div>
+      <button
+        onClick={() => sort({ sortKey: 'voteScore' })}
+        className="level-item  button  button--transition  is-medium"
+      >Score</button>
+      <button
+        onClick={() => sort({ sortKey: 'timestamp' })}
+        className="level-item  button  button--transition  is-medium"
+      >Date</button>
     </Fragment>
   )
 }
