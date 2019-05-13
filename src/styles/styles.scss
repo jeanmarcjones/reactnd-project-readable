@@ -14,12 +14,12 @@
 @import '~bulma/sass/layout/section';
 @import 'base/mixins';
 @import 'base/settings';
-@import 'components/button';
+@import 'elements/button';
+@import 'elements/spacer';
+@import 'elements/tabs';
+@import 'elements/title';
 @import 'components/comment';
 @import 'components/comment-count';
 @import 'components/post';
 @import 'components/sort-posts';
-@import 'components/spacer';
-@import 'components/tabs';
-@import 'components/title';
 @import 'components/vote-score';
