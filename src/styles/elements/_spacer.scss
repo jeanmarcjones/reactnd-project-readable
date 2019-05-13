@@ -1,5 +1,9 @@
 .spacer {
   :not(:last-child) {
-    margin-right: .7rem;
+    margin: 0 .7rem 0 0;
+
+    @include until($tablet) {
+      margin: 0 0 .7rem;
+    }
   }
 }
