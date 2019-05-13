@@ -12,7 +12,7 @@ import EditComment from './EditComment'
 import NoMatch from './NoMatch'
 import { dateFormat } from '../utils/helpers'
 
-function PostDetails({
+const PostDetails = ({
   post,
   match,
   remove,
@@ -22,7 +22,7 @@ function PostDetails({
   editCommentModalOpen,
   closeEditCommentModal,
   commentToEdit
-}) {
+}) => {
   // Waits till post has been populated before showing details
   return post
     ? <div className="container">

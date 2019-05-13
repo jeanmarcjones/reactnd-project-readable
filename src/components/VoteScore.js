@@ -4,7 +4,7 @@ import { updateScore } from '../actions/score'
 import ThumbUp from 'react-icons/lib/md/thumb-up'
 import ThumbDown from 'react-icons/lib/md/thumb-down'
 
-function VoteScore({ info: { id, component, score }, update }) {
+const VoteScore = ({ info: { id, component, score }, update }) => {
   return (
     <div className="vote-score">
       <ThumbUp

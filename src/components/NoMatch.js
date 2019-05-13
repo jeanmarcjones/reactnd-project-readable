@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 
-function NoMatch() {
+const NoMatch = () => {
   return (
     <Fragment>
       <p>Sorry the page your looking for doesn't exist.</p>

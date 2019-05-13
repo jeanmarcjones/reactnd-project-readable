@@ -6,10 +6,10 @@ import VoteScore from './VoteScore'
 import CommentCount from './CommentCount'
 import { dateFormat } from '../utils/helpers'
 
-function Post({
+const Post = ({
   post: { id, title, author, category, commentCount, timestamp, voteScore },
   remove
-}) {
+}) => {
   return (
     <div className="box">
       <Link

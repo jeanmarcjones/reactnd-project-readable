@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Comment from './Comment'
 
-function CommentsList({ comments }) {
+const CommentsList = ({ comments }) => {
   return comments.length > 0
     ? comments.map((comment) => (
       <Comment key={comment.id}  comment={comment}/>

@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import { sortPost } from '../actions/posts'
 
-function SortPosts({ sort }) {
+const SortPosts = ({ sort }) => {
   return(
     <Fragment>
       <p className="level-item  sort-posts__title  is-size-4  has-text-weight-semibold">

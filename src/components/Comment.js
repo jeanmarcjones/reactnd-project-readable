@@ -4,11 +4,11 @@ import { removeComment } from '../actions/comments'
 import { editCommentModalOpen } from '../actions/modal'
 import VoteScore from './VoteScore'
 
-function Comment({
+const Comment = ({
  comment: { id, author, body, voteScore },
  remove,
  openModal
-}) {
+}) => {
   return (
     <article className="media">
       <div className="media-content">

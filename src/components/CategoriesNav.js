@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink, withRouter } from 'react-router-dom'
 
-function CategoriesNav({ categories }) {
+const CategoriesNav = ({ categories }) => {
     return (
       <div className="tabs  is-centered  is-marginless">
         <ul className="is-capitalized  is-marginless">
