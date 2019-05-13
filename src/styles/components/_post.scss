@@ -1,0 +1,9 @@
+.media .post {
+  &:not(:last-child) {
+    margin-bottom: 1.2rem;
+  }
+}
+
+.post__content {
+  margin-top: 0.9rem;
+}

@@ -52,49 +52,5 @@
    &:hover {
      color: $green;
    }
+
  }
-
-// ------------
-// Posts styles
-// ------------
-
-.post-details {
-  margin-bottom: 1.2rem !important;
-}
-
-  .post-details__body {
-    margin-top: 0.9rem;
-  }
-
-// --------------
-// Comment styles
-// --------------
-
-.comment {
-
-  .subtitle {
-    margin: -1.3rem 0 0.45rem !important;
-  }
-}
-
-// -----------
-// Tags styles
-// -----------
-
-.tags {
-  display: inline-block !important;
-}
-
-.tag {
-  border: 1px solid $grey-lighter;
-
-  &:hover {
-    cursor: pointer;
-    background-color: transparent;
-  }
-}
-
-.tags--title {
-  display: inline-block;
-  margin-right: 10px;
-}

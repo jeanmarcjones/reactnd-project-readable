@@ -13,8 +13,8 @@ function Comment({
     <article className="media">
       <div className="media-content">
         <div  className="content  comment">
-          <h4 className="title">{body}</h4>
-          <h5 className="subtitle">By <strong>{author}</strong></h5>
+          <h4 className="title  comment__title">{body}</h4>
+          <h5 className="subtitle  comment__subtitle">By <strong>{author}</strong></h5>
           <div className="level">
             <div className="level-left">
               <VoteScore

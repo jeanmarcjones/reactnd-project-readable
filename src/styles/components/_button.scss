@@ -1,0 +1,9 @@
+.button--spacer {
+  &:not(:last-child) {
+    margin-right: 0.7rem;
+  }
+}
+
+.button--transition {
+  @include multiple-transitions($transition-short-duration, $transition-easing, background-color, border-color, color)
+}

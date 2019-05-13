@@ -28,10 +28,10 @@ function PostDetails({
     ? <div className="container">
       <article className="media">
         <div className="media-content">
-          <div className="content  post-details">
+          <div className="content  post">
             <p className="title  is-3"><strong>{post.title}</strong></p>
             <p className="subtitle  is-5">By <strong>{post.author}</strong></p>
-            <p className="subtitle  capitalise">
+            <p className="subtitle">
               On <strong>{dateFormat(post.timestamp, 'DD MMMM YYYY')}</strong> at
               <strong> {dateFormat(post.timestamp, 'HH:MM')}</strong>
             </p>
@@ -43,7 +43,7 @@ function PostDetails({
                 component: 'posts'
               }}
             />
-            <p className="post-details__body">
+            <p className="post__content">
               {post.body}
             </p>
             <div className="button--spacer">
@@ -55,10 +55,10 @@ function PostDetails({
                 onClick={() => remove({ id: post.id })}
                 className="button  button--transition  is-danger  is-outlined"
               >Delete</button>
-              <div
+              <button
                 onClick={() => openAddCommentModal()}
                 className="button  button--transition  is-success  is-outlined"
-              >Add Comment</div>
+              >Add Comment</button>
             </div>
         </div>
         <CommentsList postId={match.params.id}/>

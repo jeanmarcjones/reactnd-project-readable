@@ -14,10 +14,10 @@ function Post({
     <div className="box">
       <Link
         to={`/${category}/${id}`}
-        className="title  title__link"
+        className="title  title--link"
       >{title}</Link>
       <p className="subtitle  is-5">By <strong>{author}</strong></p>
-      <p className="subtitle  capitalise">
+      <p className="subtitle">
         On <strong>{dateFormat(timestamp, 'DD MMMM YYYY')}</strong> at
         <strong> {dateFormat(timestamp, 'HH:MM')}</strong>
       </p>
