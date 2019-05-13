@@ -4,8 +4,8 @@
 /// @param {String} $easing - a transition timing function
 /// @param {List} $properties - the CSS properties
 /// @example
-///   @include multiple-transitions(0.25s, ease, background-color, border-color);
-///   // transition: background-color 0.25s ease, border-color 0.25s ease;
+///   @include multiple-transitions(.25s, ease, background-color, border-color);
+///   // transition: background-color .25s ease, border-color .25s ease;
 @mixin multiple-transitions($duration, $easing, $properties...) {
   $value: null;
 
