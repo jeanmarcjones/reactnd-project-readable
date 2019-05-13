@@ -45,10 +45,10 @@ function Post({
             to={`/edit-post/${id}`}
             className="level-item  button  button--transition"
           >Edit</Link>
-          <a
+          <button
             onClick={() => remove({ id: id })}
             className="level-item  button  button--transition  is-danger  is-outlined"
-          >Delete</a>
+          >Delete</button>
         </div>
       </div>
     </div>

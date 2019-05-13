@@ -51,10 +51,10 @@ function PostDetails({
                 to={`/edit-post/${post.id}`}
                 className="button  button--transition"
               >Edit</Link>
-              <a
+              <button
                 onClick={() => remove({ id: post.id })}
                 className="button  button--transition  is-danger  is-outlined"
-              >Delete</a>
+              >Delete</button>
               <div
                 onClick={() => openAddCommentModal()}
                 className="button  button--transition  is-success  is-outlined"

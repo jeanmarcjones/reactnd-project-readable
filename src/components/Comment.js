@@ -26,14 +26,14 @@ function Comment({
               />
             </div>
             <div className="level-right">
-              <a
+              <button
                 onClick={() => openModal({ id: id })}
                 className="level-item  button  button--transition"
-              >Edit</a>
-              <a
+              >Edit</button>
+              <button
                 onClick={() => remove({ id: id })}
                 className="level-item  button  button--transition  is-danger  is-outlined"
-              >Delete</a>
+              >Delete</button>
             </div>
           </div>
         </div>
