@@ -9,8 +9,7 @@ import logger from 'redux-logger'
 import thunk from 'redux-thunk'
 import App from './components/App'
 import 'normalize.css/normalize.css'
-import 'bulma/bulma.sass'
-import './index.scss'
+import './styles/styles.scss'
 import registerServiceWorker from './registerServiceWorker'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

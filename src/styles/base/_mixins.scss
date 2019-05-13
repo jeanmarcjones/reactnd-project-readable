@@ -1,0 +1,9 @@
+@mixin multiple-transitions($duration, $easing, $properties...) {
+  $value: null;
+
+  @each $property in $properties {
+    $value: append($value, $property $duration $easing, $separator: comma);
+  }
+
+  transition: $value;
+}

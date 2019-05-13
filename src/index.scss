@@ -1,26 +1,5 @@
 @import '~bulma/sass/utilities/initial-variables';
 
-// ---------
-// Variables
-// ---------
-
-$transition-easing: ease;
-$transition-short-duration: 0.25s;
-
-// ------
-// Mixins
-// ------
-
-@mixin multiple-transitions($duration, $easing, $properties...) {
-  $value: null;
-
-  @each $property in $properties {
-      $value: append($value, $property $duration $easing, $separator: comma);
-  }
-
-  transition: $value;
-}
-
 // ----------------------------
 // Post type filter tabs styles
 // ----------------------------
