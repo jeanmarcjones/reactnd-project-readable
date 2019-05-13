@@ -1,0 +1,27 @@
+.vote-score {
+  display: inline-block;
+}
+
+.vote-score__up,
+.vote-score__down {
+  transition: color 0.35s ease-out;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.vote-score__up {
+  vertical-align: text-top !important;
+
+  &:hover {
+    color: $red;
+  }
+}
+
+.vote-score__down {
+  &:hover {
+    color: $green;
+  }
+
+}

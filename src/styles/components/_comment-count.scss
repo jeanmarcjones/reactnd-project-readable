@@ -1,0 +1,18 @@
+.comment-count {
+  position: relative;
+  display: inline-block;
+  margin-right: 1.1rem;
+  padding-right: 1.1rem;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 2px;
+    height: 80%;
+    margin: auto;
+    background-color: $grey-dark;
+  }
+}
