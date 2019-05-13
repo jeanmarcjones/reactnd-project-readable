@@ -46,7 +46,7 @@ function PostDetails({
             <p className="post__content">
               {post.body}
             </p>
-            <div className="button--spacer">
+            <div className="spacer">
               <Link
                 to={`/edit-post/${post.id}`}
                 className="button  button--transition"

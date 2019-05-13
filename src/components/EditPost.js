@@ -69,7 +69,7 @@ let EditPost = ({ handleSubmit, categories, edit }) => {
           </div>
         </div>
         <div className="field">
-          <div className="control  button--spacer">
+          <div className="control  spacer">
             <button className="button  button--transition  is-link">Submit</button>
             <button
               onClick={history.goBack}
