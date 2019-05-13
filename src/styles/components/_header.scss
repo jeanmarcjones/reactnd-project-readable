@@ -1,0 +1,8 @@
+.header__title--link {
+  display: inline-block;
+  transition: opacity $transition-short-duration;
+
+  &:hover {
+    opacity: 0.75;
+  }
+}

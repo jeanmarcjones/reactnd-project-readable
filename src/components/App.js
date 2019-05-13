@@ -22,7 +22,7 @@ class App extends Component {
           <div className="hero-body">
             <div className="container">
               <Link to="/">
-                <h1 className="title  title__link">Readable</h1>
+                <h1 className="title  header__title--link">Readable</h1>
               </Link>
             </div>
           </div>

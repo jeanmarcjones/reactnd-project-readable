@@ -1,27 +1,5 @@
 @import '~bulma/sass/utilities/initial-variables';
 
-// ----------------------------
-// Post type filter tabs styles
-// ----------------------------
-
-.tabs li a.is-active {
-  border-bottom-color: $blue;
-  color: $blue;
-}
-
-// ------------
-// Title styles
-// ------------
-
-.title__link {
-  display: inline-block;
-  transition: opacity $transition-short-duration;
-
-  &:hover {
-    opacity: 0.75;
-  }
-}
-
 // --------------------
 // Comment count styles
 // --------------------
@@ -119,19 +97,4 @@
 .tags--title {
   display: inline-block;
   margin-right: 10px;
-}
-
-// -------------
-// Button styles
-// -------------
-
-.button--spacer {
-
-  :not(:last-child) {
-    margin-right: 0.7rem;
-  }
-}
-
-.button--transition {
-  @include multiple-transitions($transition-short-duration, $transition-easing, background-color, border-color, color)
 }
