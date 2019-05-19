@@ -1,6 +1,6 @@
 # Readable Project
 
-My submission for Udacity's Redux course. Users can post content to predefined categories, comment on posts, and vote 
+My submission for Udacity's Redux course. Users can post content to predefined categories, comment on posts, and vote
 on posts and comments. Users can also edit and delete posts and comments.
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
@@ -17,11 +17,11 @@ You may use `npm` instead of `yarn` to install dependencies and start the develo
 
 ### Supported Node versions
 
-This project requires Node 8.
+This project requires Node 12.
 
 ### Server
 
-You will need to run a local node server for this app to work, it can be downloaded 
+You will need to run a local node server for this app to work, it can be downloaded
 [here](https://github.com/udacity/reactnd-project-readable-starter).
 
 ### Contributing
