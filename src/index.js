@@ -8,7 +8,6 @@ import reducer from './reducers'
 import logger from 'redux-logger'
 import thunk from 'redux-thunk'
 import App from './components/App'
-import 'normalize.css/normalize.css'
 import './styles/styles.scss'
 import registerServiceWorker from './registerServiceWorker'
 
